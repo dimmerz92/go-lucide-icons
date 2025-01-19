@@ -3,11 +3,13 @@ package main
 import (
 	"errors"
 	"fmt"
-	"io/ioutil"
 	"log"
 	"os"
 	"os/exec"
 	"strings"
+
+	"golang.org/x/text/cases"
+	"golang.org/x/text/language"
 )
 
 const GOFUNC = `package icons
@@ -56,7 +58,7 @@ func main() {
 
 		// create a pascal case func name
 		for _, title := range strings.Split(img, "-") {
-			funcname += strings.Title(title)
+			funcname += cases.Title(language.English).String(title)
 		}
 
 		// generate the templ component text
@@ -83,7 +85,7 @@ func main() {
 // opens the given filename and converts the svg to a templ component
 func convertToTempl(filename, funcname string) string {
 	// read the file
-	content, err := ioutil.ReadFile(filename)
+	content, err := os.ReadFile(filename)
 	if err != nil {
 		log.Printf("Failed to read file: %v", err)
 	}
