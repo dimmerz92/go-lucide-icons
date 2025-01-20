@@ -8,7 +8,7 @@ A Templ wrapper of Lucide Icons for Go developers.
 
 ## Installation
 
-`go get github.com/dimmerz92/go-templ-lucide`
+`go get github.com/dimmerz92/go-templ-lucide/icons`
 
 ## Usage
 
