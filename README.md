@@ -29,17 +29,37 @@ Passing an argument is not mandatory.
 
 **With Classes (Single Arg)**
 ```templ
-@icons.AArowDown("h-4 w-4 text-red-600")
+@icons.AArrowDown("h-4 w-4 text-red-600")
 ```
 
 **With Classes (Multi Arg)**
 ```templ
-@icons.AArowDown(
+@icons.AArrowDown(
     "h-4",
     "w-4",
     "text-red-600",
 )
 ```
+
+### Not building with templ?
+
+Templ will still remain a dependency, however, you can still use these icons with Go's html/template package.
+
+With this method, you can inject the icon as HTML into your templates from your program.
+
+```templ
+icon, err := templ.ToGoHTML(context.Background(), icons.AArrowDown("h-4 w-4 text-red-600"))
+if err != nil {
+    log.Printf("Failed to render Templ to Go HTML: %v", err)
+}
+
+if err = existingTemplates.Execute(w, icon); err != nil {
+    log.Printf("Failed to execute template: %v", err)
+}
+```
+
+See the [Templ docs](https://templ.guide/syntax-and-usage/using-with-go-templates#using-a-templ-component-withhtmltemplate).
+
 ## License
 
 Go Templ Lucide is provided using the MIT License.
