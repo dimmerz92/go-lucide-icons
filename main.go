@@ -22,19 +22,12 @@ templ %s(class ...string) {
 }
 `
 
-func main() {
-	f, _ := os.Create("test.txt")
-	f.Write([]byte("hello world"))
-	f.Close()
-	fmt.Println("test succeeded")
-}
-
 // Encapsulates the svg files as a templ component and adds variadic class html
 // attributes. Reads from the imgs folder and generates components to the icons
 // folder. Calls templ fmt on the new icons for proper formatting.
-func main1() {
+func main() {
 	// read the imgs folder
-	files, err := os.ReadDir("./imgs")
+	files, err := os.ReadDir("./lucide/icons")
 	if err != nil {
 		log.Fatalf("Failed to read img directory: %s", err)
 	}
