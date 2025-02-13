@@ -10,4 +10,4 @@ jobs:
   check:
     runs-on: ubuntu-latest
     steps:
-      - run: exit $(curl -s https://api.github.com/repos/lucide-icons/lucide/commits/main | jq -r "((now - (.commit.author.date | fromdateiso8601) )  / (60*60*24)  | trunc)")
+      - run: exit $(curl -s https://api.github.com/repos/lucide-icons/lucide/commits/main | jq -r "((now - (.commit.author.date | fromdateiso8601) )  / (60*60*48)  | trunc)")
