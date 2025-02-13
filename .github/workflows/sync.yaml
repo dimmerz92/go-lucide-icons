@@ -31,7 +31,7 @@ jobs:
           git switch -c sync
           go run ./main.go
           rm -r ./lucide
-          git add ./icons
+          git add .
           git commit -m "ci: sync with lucide icons repo"
           git checkout master
 
