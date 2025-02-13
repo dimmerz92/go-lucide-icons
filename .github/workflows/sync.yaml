@@ -2,7 +2,7 @@ name: sync
 
 on:
   workflow_run:
-    workflows: ["trigger"]
+    workflows: ["sync_trigger"]
     types: [completed]
 
   workflow_dispatch:
