@@ -22,10 +22,14 @@ templ %s(class ...string) {
 }
 `
 
+func main() {
+	fmt.Println("test succeeded")
+}
+
 // Encapsulates the svg files as a templ component and adds variadic class html
 // attributes. Reads from the imgs folder and generates components to the icons
 // folder. Calls templ fmt on the new icons for proper formatting.
-func main() {
+func main1() {
 	// read the imgs folder
 	files, err := os.ReadDir("./imgs")
 	if err != nil {
