@@ -1,100 +1,164 @@
 package main
 
 import (
-	"errors"
 	"fmt"
 	"log"
 	"os"
 	"os/exec"
+	"path/filepath"
+	"runtime"
 	"strings"
-
-	"golang.org/x/text/cases"
-	"golang.org/x/text/language"
+	"sync"
 )
 
+const ICON_DIR = "./icons/"
+const LUCIDE_DIR = "./lucide/icons/"
 const GOFUNC = `package icons
 
-templ %s(class ...string) {
+templ %s(props IconProps) {
     %s
-		class={ class }
+		if props.ID != "" {
+			id={ props.ID }
+		}
+		if props.Class != "" {
+			class={ props.Class }
+		}
+		if props.Style != "" {
+			style={ props.Style }
+		}
+		{ props.Attributes... }
     >
     %s
-}
-`
+}`
 
-// Encapsulates the svg files as a templ component and adds variadic class html
-// attributes. Reads from the imgs folder and generates components to the icons
-// folder. Calls templ fmt on the new icons for proper formatting.
+var existingFiles = map[string]bool{}
+var newFiles = []string{}
+
 func main() {
-	// read the imgs folder
-	files, err := os.ReadDir("./imgs")
+	// get a list of icons that we already have and store in memory
+	iconDir, err := os.ReadDir(ICON_DIR)
 	if err != nil {
-		log.Fatalf("Failed to read img directory: %s", err)
+		log.Fatalf("failed to read icons directory: %v", err)
 	}
 
-	// get the names of all svg images that are not already converted
-	imgs := []string{}
-	for _, file := range files {
-		var img string
-		if strings.HasSuffix(file.Name(), ".svg") {
-			img = strings.TrimSuffix(file.Name(), ".svg")
-		}
+	for _, file := range iconDir {
+		name := strings.TrimSuffix(file.Name(), filepath.Ext(file.Name()))
+		existingFiles[name] = true
+	}
 
-		if img == "" {
+	// get a list of svg icons from the cloned lucide icons repo
+	lucideDir, err := os.ReadDir(LUCIDE_DIR)
+	if err != nil {
+		log.Fatalf("failed to read lucide icons directory: %v", err)
+	}
+
+	for _, file := range lucideDir {
+		// skip if not an svg
+		if !strings.HasSuffix(file.Name(), ".svg") {
 			continue
 		}
 
-		_, err := os.Stat("./icons/" + img + ".templ")
-		if !errors.Is(err, os.ErrNotExist) {
+		// skip if already converted
+		name := strings.TrimSuffix(file.Name(), ".svg")
+		if _, ok := existingFiles[name]; ok {
 			continue
 		}
 
-		imgs = append(imgs, img)
+		newFiles = append(newFiles, name)
 	}
 
-	// convert all svg images to templ component
-	for _, img := range imgs {
-		var funcname string
+	// process images
+	var wg sync.WaitGroup
+	nProc := runtime.NumCPU()
+	errors := make(chan error, nProc)
+	tasks := make(chan string, len(newFiles))
 
-		// create a pascal case func name
-		for _, title := range strings.Split(img, "-") {
-			funcname += cases.Title(language.English).String(title)
-		}
+	for _, file := range newFiles {
+		tasks <- file
+	}
+	close(tasks)
 
-		// generate the templ component text
-		templ := convertToTempl("./imgs/"+img+".svg", funcname)
+	for i := 0; i < nProc; i++ {
+		wg.Add(1)
+		go func() {
+			defer wg.Done()
 
-		// save the output to a templ file
-		err := os.WriteFile("./icons/"+img+".templ", []byte(templ), 0644)
-		if err != nil {
-			log.Printf("Failed to create templ component: %v", err)
-			continue
-		}
-		log.Printf("Converted: %s", img)
+			for name := range tasks {
+				// kebab case to pascal case
+				funcName := kebabToPascalCase(name)
+
+				// convert svg to templ template string
+				err := processImage(name, funcName)
+				if err != nil {
+					errors <- err
+					continue
+				}
+
+			}
+		}()
 	}
 
-	// run templ fmt on the icons folder
-	cmd := exec.Command("templ", "fmt", "icons")
-	if _, err := cmd.Output(); err != nil {
-		log.Printf("Failed to run templ fmt on the new components: %s", err)
-	} else {
-		log.Println("Successfully finished")
+	// handle any errors
+	go func() {
+		wg.Wait()
+		close(errors)
+	}()
+
+	for err := range errors {
+		log.Printf("failed to convert icon: %v", err)
 	}
+
+	// run templ fmt and generate
+	if err := templGenerate(); err != nil {
+		log.Fatalf("failed to run templ commands: %v", err)
+	}
+}
+
+// converts a string from kebab case to pascal case
+func kebabToPascalCase(s string) string {
+	var buf strings.Builder
+	for _, sub := range strings.Split(s, "-") {
+		buf.WriteString(strings.ToUpper(string(sub[:1])) + sub[1:])
+	}
+	return buf.String()
 }
 
 // opens the given filename and converts the svg to a templ component
-func convertToTempl(filename, funcname string) string {
+func processImage(name, funcname string) error {
 	// read the file
-	content, err := os.ReadFile(filename)
+	content, err := os.ReadFile(LUCIDE_DIR + name + ".svg")
 	if err != nil {
-		log.Printf("Failed to read file: %v", err)
+		return err
 	}
 
 	// split on the opening svg tag
-	imgFragments := strings.SplitN(string(content), ">", 2)
-	if len(imgFragments) != 2 {
-		log.Printf("Failed to convert svg: %s", filename)
+	parts := strings.SplitN(string(content), ">", 2)
+	if len(parts) != 2 {
+		return fmt.Errorf("Failed to convert svg: %s", name)
 	}
 
-	return fmt.Sprintf(GOFUNC, funcname, imgFragments[0], imgFragments[1])
+	// interpolate parts into templ template
+	templ := fmt.Sprintf(GOFUNC, funcname, parts[0], parts[1])
+
+	// save templ file to icons folder
+	err = os.WriteFile(ICON_DIR+name+".templ", []byte(templ), 0644)
+	if err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func templGenerate() error {
+	cmd := exec.Command("templ", "fmt", "icons")
+	if _, err := cmd.Output(); err != nil {
+		return err
+	}
+
+	cmd = exec.Command("templ", "generate")
+	if _, err := cmd.Output(); err != nil {
+		return err
+	}
+
+	return nil
 }
