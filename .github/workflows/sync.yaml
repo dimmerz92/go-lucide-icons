@@ -33,13 +33,10 @@ jobs:
           rm -r ./lucide
           git add .
           git commit -m "ci: sync with lucide icons repo"
-          git checkout master
 
       - name: Submit a PR
         uses: peter-evans/create-pull-request@v7
         with:
-          base: master
-          branch: sync
           title: '[ci] sync with lucide repo'
           labels: ci,sync
           assignees: dimmerz92
