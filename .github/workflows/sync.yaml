@@ -1,0 +1,43 @@
+name: sync
+
+on:
+  workflow_run:
+    workflows: ["trigger"]
+    types: [completed]
+
+  workflow_dispatch:
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Checkout lucide icons repo
+        uses: actions/checkout@v5
+        with:
+          repository: lucide-icons/lucide
+
+      - name: Process new icons
+        uses: actions/setup-go@v5
+        with:
+          go-version-file: ./go.mod
+        run: |
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git config user.name "github-actions[bot]"
+          git checkout sync
+          go run ./main.go
+          rm -r ./lucide
+          git add ./icons
+          git commit -m "ci: sync with lucide icons repo"
+          git checkout master
+
+      - name: Submit a PR
+        uses: peter-evans/create-pull-request@v7
+        with:
+          base: master
+          branch: sync
+          title: '[ci] sync with lucide repo'
+          labels: ci,sync
+          assignees: dimmerz92
