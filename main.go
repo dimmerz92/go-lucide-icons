@@ -62,7 +62,7 @@ func main() {
 		}
 
 		// generate the templ component text
-		templ := convertToTempl("./imgs/"+img+".svg", funcname)
+		templ := convertToTempl("./lucide/icons/"+img+".svg", funcname)
 
 		// save the output to a templ file
 		err := os.WriteFile("./icons/"+img+".templ", []byte(templ), 0644)
