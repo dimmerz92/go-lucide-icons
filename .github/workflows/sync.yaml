@@ -12,9 +12,6 @@ jobs:
     runs-on: ubuntu-latest
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
-      - name: Checkout
-        
-
       - name: Process new icons
       - uses: actions/checkout@v4
       - uses: actions/setup-go@v5
