@@ -12,12 +12,15 @@ jobs:
     runs-on: ubuntu-latest
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        
       - name: Checkout lucide icons repo
         uses: actions/checkout@v4
         with:
           repository: lucide-icons/lucide
+          path: lucide
 
-      - uses: actions/checkout@v4
       - name: Process new icons
         uses: actions/setup-go@v5
         with:
