@@ -29,7 +29,6 @@ type IconProps struct {
 }
 ```
 
-**No Classes**
 ```templ
 @icons.AArrowDown(icons.IconProps{})
 ```
