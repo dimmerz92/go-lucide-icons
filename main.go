@@ -24,7 +24,7 @@ templ %s(class ...string) {
 
 func main() {
 	f, _ := os.Create("test.txt")
-	f.Write([]("hello world"))
+	f.Write([]byte("hello world"))
 	f.Close()
 	fmt.Println("test succeeded")
 }
