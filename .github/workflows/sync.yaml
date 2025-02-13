@@ -37,4 +37,5 @@ jobs:
         with:
           title: '[ci] sync with lucide repo'
           labels: ci,sync
+          branch: sync
           assignees: dimmerz92
