@@ -22,7 +22,7 @@ jobs:
       - run: |
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git config user.name "github-actions[bot]"
-          git checkout sync
+          git switch -c sync
           git clone git@github.com:lucide-icons/lucide.git
           go run ./main.go
           rm -r ./lucide
