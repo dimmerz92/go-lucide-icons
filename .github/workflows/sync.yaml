@@ -14,10 +14,10 @@ jobs:
     steps:
       - name: Check for commits to the icons folder in the last day
         id: new-commits
-        run: |
-          echo "new=$( \
-            curl -s "https://api.github.com/repos/lucide-icons/lucide/commits?path=icons&since=$(date -I)" \
-            | jq "length" \
+        run: >-
+          echo "new=$(
+          curl -s "https://api.github.com/repos/lucide-icons/lucide/commits?path=icons&since=$(date -I)"
+          | jq "length" 
           )" >> "$GITHUB_OUTPUT"
 
   sync_lucid_repo:
