@@ -1,23 +1,35 @@
 name: sync
 
 on:
-  workflow_run:
-    workflows: ["sync_trigger"]
-    types: [completed]
+  schedule:
+    - cron: '0 0 * * *'
 
   workflow_dispatch:
 
 jobs:
-  sync:
+  check-lucide-repo:
     runs-on: ubuntu-latest
-    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    outputs:
+      new: ${{ steps.check-lucide-repo.outputs.new }}
+    steps:
+      - name: Check for commits to the icons folder in the last day
+        id: new-commits
+        run: |
+          echo "new=$(
+            curl -s "https://api.github.com/repos/lucide-icons/lucide/commits?path=icons&since=$(date -I)" | jq "length"
+          )" >> "$GITHUB_OUTPUT"
+
+  sync_lucid_repo:
+    runs-on: ubuntu-latest
+    needs: check-lucide-repo
+    if: ${{ fromJSON(needs.check-lucide-repo.outputs.new) > 0 }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-go@v5
         with:
           go-version-file: ./go.mod
 
-      - name: Clone lucide icons
+      - name: Clone lucide icons repo
         uses: actions/checkout@v4
         with:
           repository: lucide-icons/lucide
