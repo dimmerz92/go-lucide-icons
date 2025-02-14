@@ -10,7 +10,7 @@ jobs:
   check-lucide-repo:
     runs-on: ubuntu-latest
     outputs:
-      new: ${{ steps.check-lucide-repo.outputs.new }}
+      new: ${{ steps.new-commits.outputs.new }}
     steps:
       - name: Check for commits to the icons folder in the last day
         id: new-commits
@@ -20,7 +20,7 @@ jobs:
           | jq "length" 
           )" >> "$GITHUB_OUTPUT"
 
-  sync_lucid_repo:
+  sync-lucid-repo:
     runs-on: ubuntu-latest
     needs: check-lucide-repo
     if: ${{ fromJSON(needs.check-lucide-repo.outputs.new) > 0 }}
