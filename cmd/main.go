@@ -17,6 +17,15 @@ func main() {
 	}
 
 	switch args[1] {
+	case "add":
+		if len(args) < 4 {
+			printUsage()
+		}
+
+		if internal.ReturnIcon(args[2:]) < 0 {
+			printUsage()
+		}
+
 	case "sync":
 		internal.SyncFiles(INPUT, OUTPUT)
 
@@ -38,10 +47,17 @@ const USAGE = `
 
 	COMMANDS:
 
+	add <templ | html> <icon name (kebab-case)>
+	*
+	* Adds a templ or html icon template to your project.
+	* Specify templ or html after the add command.
+	* The icon template will be generated in the directory the command was run
+	* from.
+
 	sync [-i <input directory>] [-o <output directory>]
 	*
-	* Generates syncs new icons from the input to the output. If -i and or -o
-	* flags are not used, these values default to:
+	* Syncs new icons from the input to the output. If -i and/or -o flags are
+	* not used, these values default to:
 	*	-i %s
 	*	-o %s
 
