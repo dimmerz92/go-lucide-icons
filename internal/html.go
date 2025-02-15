@@ -7,18 +7,12 @@ import (
 	"strings"
 )
 
-const HTML = `{{ define "%s" }}
-%s
-	{{ range $key, $value := . }}
-		{{ if eq $value "" }}
-			{{ $key }} 
-		{{ else }}
-			{{ $key }}="{{ $value }}" 
-		{{ end }}
+const HTML = `%s
+	{{ range $value := . }}
+		{{ $value }}
 	{{ end }}
 >
-%s
-{{ end }}`
+%s`
 
 // generateHtmlIcon generates a html template icon from the given funcString
 // template string and saves the templ file at the given target directory.
@@ -35,9 +29,13 @@ func generateHtmlIcon(file, target string) error {
 
 	fileName := strings.TrimSuffix(filepath.Base(file), ".svg")
 
-	tpl := fmt.Sprintf(HTML, fileName, svgParts[0], svgParts[1])
+	tpl := fmt.Sprintf(HTML, svgParts[0], svgParts[1])
 
-	err = os.WriteFile(target+fileName+".html", []byte(tpl), 0644)
+	err = os.WriteFile(
+		filepath.Join(target, fileName+".html"),
+		[]byte(tpl),
+		0644,
+	)
 	if err != nil {
 		return fmt.Errorf("failed to generate html/template icon: %v", err)
 	}

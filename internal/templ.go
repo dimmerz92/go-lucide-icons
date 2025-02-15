@@ -43,7 +43,11 @@ func generateTemplIcon(file, target string) error {
 
 	templ := fmt.Sprintf(TEMPL, funcName, svgParts[0], svgParts[1])
 
-	err = os.WriteFile(target+fileName+".templ", []byte(templ), 0644)
+	err = os.WriteFile(
+		filepath.Join(target, fileName+".templ"),
+		[]byte(templ),
+		0644,
+	)
 	if err != nil {
 		return fmt.Errorf("failed to generate templ icon: %v", err)
 	}
