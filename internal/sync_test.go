@@ -22,3 +22,18 @@ func TestGetNewFiles(t *testing.T) {
 		}
 	}
 }
+
+func TestKebabtoPascalCase(t *testing.T) {
+	if name := kebabToPascalCase("hello-world"); name != "HelloWorld" {
+		t.Fatalf("expected HelloWorld, returned %s", name)
+	}
+	if name := kebabToPascalCase("hello"); name != "Hello" {
+		t.Fatalf("expected Hello, returned %s", name)
+	}
+	if name := kebabToPascalCase("hello-world-long"); name != "HelloWorldLong" {
+		t.Fatalf("expected HelloWorld, returned %s", name)
+	}
+	if name := kebabToPascalCase("hello--world"); name != "HelloWorld" {
+		t.Fatalf("expected HelloWorld, returned %s", name)
+	}
+}

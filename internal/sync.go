@@ -39,3 +39,18 @@ func getNewFiles(src, target string) ([]string, error) {
 
 	return newFiles, nil
 }
+
+// kebabToPascalCase converts a kebab case string to a pascal case string.
+func kebabToPascalCase(file string) string {
+	var buf strings.Builder
+
+	for _, sub := range strings.Split(file, "-") {
+		if len(sub) < 1 {
+			continue
+		}
+		buf.WriteString(strings.ToUpper(string(sub[0])))
+		buf.WriteString(sub[1:])
+	}
+
+	return buf.String()
+}
