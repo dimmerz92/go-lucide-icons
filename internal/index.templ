@@ -1,0 +1,43 @@
+package internal
+
+import "html/template"
+import "github.com/dimmerz92/go-templ-lucide/icons"
+
+var arrowUp = template.Must(template.ParseFiles("./icons/a-arrow-up.html"))
+var arrowDown = template.Must(template.ParseFiles("./icons/a-arrow-up.html"))
+var fish = template.Must(template.ParseFiles("./icons/fish.html"))
+var fingerprint = template.Must(template.ParseFiles("./icons/fingerprint.html"))
+var worm = template.Must(template.ParseFiles("./icons/worm.html"))
+
+templ index() {
+	<!DOCTYPE html>
+	<html>
+		<head>
+			<title>test index page</title>
+		</head>
+		<body>
+			<h2>templ icons</h2>
+			@icons.X(icons.IconProps{})
+			@icons.X(icons.IconProps{Style: "height: 2rem; width: 2rem"})
+			@icons.X(icons.IconProps{Style: "height: 3rem; width: 3rem"})
+			@icons.X(icons.IconProps{Style: "height: 4rem; width: 4rem"})
+			<br/>
+			@icons.Pi(icons.IconProps{})
+			@icons.Cpu(icons.IconProps{Style: "height: 2rem; width: 2rem"})
+			@icons.GitCommitVertical(icons.IconProps{Style: "height: 3rem; width: 3rem"})
+			@icons.Rabbit(icons.IconProps{Style: "height: 4rem; width: 4rem"})
+			<br/>
+			<br/>
+			<h2>html icons</h2>
+			@templ.FromGoHTML(arrowUp, nil)
+			@templ.FromGoHTML(arrowUp, []template.HTMLAttr{`style="height: 2rem; width: 2rem"`})
+			@templ.FromGoHTML(arrowUp, []template.HTMLAttr{`style="height: 3rem; width: 3rem"`})
+			@templ.FromGoHTML(arrowUp, []template.HTMLAttr{`style="height: 4rem; width: 4rem"`})
+			<br/>
+			@templ.FromGoHTML(arrowDown, nil)
+			@templ.FromGoHTML(fish, []template.HTMLAttr{`style="height: 2rem; width: 2rem"`})
+			@templ.FromGoHTML(fingerprint, []template.HTMLAttr{`style="height: 3rem; width: 3rem"`})
+			@templ.FromGoHTML(worm, []template.HTMLAttr{`style="height: 4rem; width: 4rem"`})
+		</body>
+	</html>
+}
