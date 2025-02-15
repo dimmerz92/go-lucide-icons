@@ -49,7 +49,7 @@ func TestGenerateTemplIcon(t *testing.T) {
 		t.Fatalf("failed to get current working directory: %v", err)
 	}
 
-	if err := generateTemplIcon(file, TEMPL, target); err != nil {
+	if err := generateTemplIcon(file, target); err != nil {
 		t.Fatalf("failed to generate templ icon: %v", err)
 	}
 
@@ -66,5 +66,33 @@ func TestGenerateTemplIcon(t *testing.T) {
 
 	if err := os.Remove(cwd + "/" + target + "newfile1.templ"); err != nil {
 		t.Logf("failed to remove the test generated templ file: %v", err)
+	}
+}
+
+func TestGenerateHtmlIcon(t *testing.T) {
+	file := "./tests/src/newfile1.svg"
+	target := "./tests/target/"
+	cwd, err := os.Getwd()
+	if err != nil {
+		t.Fatalf("failed to get current working directory: %v", err)
+	}
+
+	if err := generateHtmlIcon(file, target); err != nil {
+		t.Fatalf("failed to generate templ icon: %v", err)
+	}
+
+	if _, err := os.Stat(cwd + "/" + target + "newfile1.html"); err != nil {
+		t.Fatalf("html icon did not get created: %v", err)
+	}
+
+	newFile, err := os.ReadFile(target + "newfile1.html")
+	if err != nil {
+		t.Fatalf("failed to read newly generated html file: %v", err)
+	}
+
+	t.Logf("inspect generated file contents:\n%s", string(newFile))
+
+	if err := os.Remove(cwd + "/" + target + "newfile1.html"); err != nil {
+		t.Logf("failed to remove the test generated html file: %v", err)
 	}
 }
