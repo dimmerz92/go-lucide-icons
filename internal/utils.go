@@ -32,6 +32,10 @@ func getNewFiles(src, target string) ([]string, error) {
 	}
 
 	for _, file := range srcDir {
+		if !strings.HasSuffix(file.Name(), ".svg") {
+			continue
+		}
+
 		if _, ok := targetFiles[strings.TrimSuffix(file.Name(), ".svg")]; !ok {
 			newFiles = append(newFiles, filepath.Join(src, file.Name()))
 		}
