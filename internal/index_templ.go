@@ -9,6 +9,8 @@ import "github.com/a-h/templ"
 import templruntime "github.com/a-h/templ/runtime"
 
 import "github.com/dimmerz92/go-templ-lucide/pkg/templ/icons"
+
+/*
 import "html/template"
 
 var arrowUp = template.Must(template.ParseFiles("./pkg/html/icons/a-arrow-up.html"))
@@ -16,6 +18,7 @@ var arrowDown = template.Must(template.ParseFiles("./pkg/html/icons/a-arrow-up.h
 var fish = template.Must(template.ParseFiles("./pkg/html/icons/fish.html"))
 var fingerprint = template.Must(template.ParseFiles("./pkg/html/icons/fingerprint.html"))
 var worm = template.Must(template.ParseFiles("./pkg/html/icons/worm.html"))
+*/
 
 func index() templ.Component {
 	return templruntime.GeneratedTemplate(func(templ_7745c5c3_Input templruntime.GeneratedComponentInput) (templ_7745c5c3_Err error) {
@@ -78,47 +81,7 @@ func index() templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "<br><br><h2>html icons</h2>")
-		if templ_7745c5c3_Err != nil {
-			return templ_7745c5c3_Err
-		}
-		templ_7745c5c3_Err = templ.FromGoHTML(arrowUp, nil).Render(ctx, templ_7745c5c3_Buffer)
-		if templ_7745c5c3_Err != nil {
-			return templ_7745c5c3_Err
-		}
-		templ_7745c5c3_Err = templ.FromGoHTML(arrowUp, []template.HTMLAttr{`style="height: 2rem; width: 2rem"`}).Render(ctx, templ_7745c5c3_Buffer)
-		if templ_7745c5c3_Err != nil {
-			return templ_7745c5c3_Err
-		}
-		templ_7745c5c3_Err = templ.FromGoHTML(arrowUp, []template.HTMLAttr{`style="height: 3rem; width: 3rem"`}).Render(ctx, templ_7745c5c3_Buffer)
-		if templ_7745c5c3_Err != nil {
-			return templ_7745c5c3_Err
-		}
-		templ_7745c5c3_Err = templ.FromGoHTML(arrowUp, []template.HTMLAttr{`style="height: 4rem; width: 4rem"`}).Render(ctx, templ_7745c5c3_Buffer)
-		if templ_7745c5c3_Err != nil {
-			return templ_7745c5c3_Err
-		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 4, "<br>")
-		if templ_7745c5c3_Err != nil {
-			return templ_7745c5c3_Err
-		}
-		templ_7745c5c3_Err = templ.FromGoHTML(arrowDown, nil).Render(ctx, templ_7745c5c3_Buffer)
-		if templ_7745c5c3_Err != nil {
-			return templ_7745c5c3_Err
-		}
-		templ_7745c5c3_Err = templ.FromGoHTML(fish, []template.HTMLAttr{`style="height: 2rem; width: 2rem"`}).Render(ctx, templ_7745c5c3_Buffer)
-		if templ_7745c5c3_Err != nil {
-			return templ_7745c5c3_Err
-		}
-		templ_7745c5c3_Err = templ.FromGoHTML(fingerprint, []template.HTMLAttr{`style="height: 3rem; width: 3rem"`}).Render(ctx, templ_7745c5c3_Buffer)
-		if templ_7745c5c3_Err != nil {
-			return templ_7745c5c3_Err
-		}
-		templ_7745c5c3_Err = templ.FromGoHTML(worm, []template.HTMLAttr{`style="height: 4rem; width: 4rem"`}).Render(ctx, templ_7745c5c3_Buffer)
-		if templ_7745c5c3_Err != nil {
-			return templ_7745c5c3_Err
-		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 5, "</body></html>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "<br><br><h2>html icons</h2></body></html>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

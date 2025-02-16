@@ -1,6 +1,10 @@
 package internal
 
+/* have to comment stuff out because test doesn't like it... */
+
 import "github.com/dimmerz92/go-templ-lucide/pkg/templ/icons"
+
+/*
 import "html/template"
 
 var arrowUp = template.Must(template.ParseFiles("./pkg/html/icons/a-arrow-up.html"))
@@ -8,6 +12,7 @@ var arrowDown = template.Must(template.ParseFiles("./pkg/html/icons/a-arrow-up.h
 var fish = template.Must(template.ParseFiles("./pkg/html/icons/fish.html"))
 var fingerprint = template.Must(template.ParseFiles("./pkg/html/icons/fingerprint.html"))
 var worm = template.Must(template.ParseFiles("./pkg/html/icons/worm.html"))
+*/
 
 templ index() {
 	<!DOCTYPE html>
@@ -29,6 +34,7 @@ templ index() {
 			<br/>
 			<br/>
 			<h2>html icons</h2>
+			/*
 			@templ.FromGoHTML(arrowUp, nil)
 			@templ.FromGoHTML(arrowUp, []template.HTMLAttr{`style="height: 2rem; width: 2rem"`})
 			@templ.FromGoHTML(arrowUp, []template.HTMLAttr{`style="height: 3rem; width: 3rem"`})
@@ -38,6 +44,7 @@ templ index() {
 			@templ.FromGoHTML(fish, []template.HTMLAttr{`style="height: 2rem; width: 2rem"`})
 			@templ.FromGoHTML(fingerprint, []template.HTMLAttr{`style="height: 3rem; width: 3rem"`})
 			@templ.FromGoHTML(worm, []template.HTMLAttr{`style="height: 4rem; width: 4rem"`})
+			*/
 		</body>
 	</html>
 }
