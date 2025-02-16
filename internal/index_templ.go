@@ -8,14 +8,14 @@ package internal
 import "github.com/a-h/templ"
 import templruntime "github.com/a-h/templ/runtime"
 
+import "github.com/dimmerz92/go-templ-lucide/pkg/templ/icons"
 import "html/template"
-import "github.com/dimmerz92/go-templ-lucide/icons"
 
-var arrowUp = template.Must(template.ParseFiles("./icons/a-arrow-up.html"))
-var arrowDown = template.Must(template.ParseFiles("./icons/a-arrow-up.html"))
-var fish = template.Must(template.ParseFiles("./icons/fish.html"))
-var fingerprint = template.Must(template.ParseFiles("./icons/fingerprint.html"))
-var worm = template.Must(template.ParseFiles("./icons/worm.html"))
+var arrowUp = template.Must(template.ParseFiles("./pkg/html/icons/a-arrow-up.html"))
+var arrowDown = template.Must(template.ParseFiles("./pkg/html/icons/a-arrow-up.html"))
+var fish = template.Must(template.ParseFiles("./pkg/html/icons/fish.html"))
+var fingerprint = template.Must(template.ParseFiles("./pkg/html/icons/fingerprint.html"))
+var worm = template.Must(template.ParseFiles("./pkg/html/icons/worm.html"))
 
 func index() templ.Component {
 	return templruntime.GeneratedTemplate(func(templ_7745c5c3_Input templruntime.GeneratedComponentInput) (templ_7745c5c3_Err error) {
