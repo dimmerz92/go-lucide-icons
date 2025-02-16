@@ -8,7 +8,8 @@ import (
 )
 
 const INPUT = "./lucide/icons"
-const OUTPUT = "./icons"
+const HTML_OUTPUT = "./pkg/html/icons"
+const TEMPL_OUTPUT = "./pkg/templ/icons"
 
 func main() {
 	args := os.Args
@@ -27,13 +28,13 @@ func main() {
 		}
 
 	case "sync":
-		internal.SyncFiles(INPUT, OUTPUT)
+		internal.SyncFiles(INPUT, HTML_OUTPUT, TEMPL_OUTPUT)
 
 	case "test":
 		internal.TestServer(args[2:])
 
 	case "help", "-h", "--help":
-		fmt.Printf(USAGE, INPUT, OUTPUT)
+		fmt.Print(USAGE)
 
 	default:
 		printUsage()
@@ -47,19 +48,16 @@ const USAGE = `
 
 	COMMANDS:
 
-	add <templ | html> <icon name (kebab-case)>
+	add [-o ouput_file] <templ | html> <icon name (kebab-case)>
 	*
 	* Adds a templ or html icon template to your project.
-	* Specify templ or html after the add command.
 	* The icon template will be generated in the directory the command was run
-	* from.
+	* from if an output file is not specified.
 
-	sync [-i <input directory>] [-o <output directory>]
+	sync
 	*
-	* Syncs new icons from the input to the output. If -i and/or -o flags are
-	* not used, these values default to:
-	*	-i %s
-	*	-o %s
+	* Syncs new icons from the ./lucide/icons directory to the relevant html or
+	* templ directory in the ./pkg directory.
 
 	test [-p <port>]
 	*
@@ -68,6 +66,6 @@ const USAGE = `
 `
 
 func printUsage() {
-	fmt.Printf(USAGE, INPUT, OUTPUT)
+	fmt.Print(USAGE)
 	os.Exit(1)
 }
