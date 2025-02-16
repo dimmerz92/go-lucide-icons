@@ -1,4 +1,4 @@
-module github.com/dimmerz92/go-templ-lucide
+module github.com/dimmerz92/go-lucide-icons
 
 go 1.23.5
 

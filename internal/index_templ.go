@@ -8,7 +8,7 @@ package internal
 import "github.com/a-h/templ"
 import templruntime "github.com/a-h/templ/runtime"
 
-import "github.com/dimmerz92/go-templ-lucide/pkg/templ/icons"
+import "github.com/dimmerz92/go-lucide-icons/pkg/templ/icons"
 
 func index() templ.Component {
 	return templruntime.GeneratedTemplate(func(templ_7745c5c3_Input templruntime.GeneratedComponentInput) (templ_7745c5c3_Err error) {

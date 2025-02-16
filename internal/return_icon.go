@@ -6,8 +6,8 @@ import (
 	"os"
 	"path/filepath"
 
-	glhtml "github.com/dimmerz92/go-templ-lucide/pkg/html"
-	gltempl "github.com/dimmerz92/go-templ-lucide/pkg/templ"
+	glhtml "github.com/dimmerz92/go-lucide-icons/pkg/html"
+	gltempl "github.com/dimmerz92/go-lucide-icons/pkg/templ"
 )
 
 func ReturnIcon(args []string) int {

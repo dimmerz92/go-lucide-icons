@@ -8,7 +8,7 @@ import (
 	"os"
 
 	"github.com/a-h/templ"
-	"github.com/dimmerz92/go-templ-lucide/pkg/html/icons"
+	"github.com/dimmerz92/go-lucide-icons/pkg/html/icons"
 )
 
 func TestServer(args []string) int {

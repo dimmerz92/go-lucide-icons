@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/dimmerz92/go-templ-lucide/internal"
+	"github.com/dimmerz92/go-lucide-icons/internal"
 )
 
 const INPUT = "./lucide/icons"
