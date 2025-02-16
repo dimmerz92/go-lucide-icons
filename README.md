@@ -6,7 +6,9 @@ A wrapper of Lucide Icons for Go (Golang) developers.
 
 * None if using HTML templates
 * [Templ](https://templ.guide/) if using Templ templates
-    * `go install github.com/a-h/templ/cmd/templ@latest`
+```bash
+go install github.com/a-h/templ/cmd/templ@latest
+```
 
 ## Installation & Usage
 
@@ -17,11 +19,19 @@ Browse [Lucide Icons](https://lucide.dev/icons/) for a comprehensive view of all
 ### The command line way
 
 1. Install the command line utility:
-    * `go install github.com/dimmerz92/go-lucide-icons/cmd/golucide@latest`
+```bash
+go install github.com/dimmerz92/go-lucide-icons/cmd/golucide@latest
+```
 
 2. Generate icons to your project directly:
-    * For Templ icons: `golucide add [-o <output directory>] templ <icon-name (kebab-case)>`
-    * For HTML icons: `golucide add [-o <output directory>] html <icon-name (kebab-case)>`
+* For Templ icons:
+```bash
+golucide add [-o <output directory>] templ <icon-name (kebab-case)>
+```
+* For HTML icons:
+```bash
+golucide add [-o <output directory>] html <icon-name (kebab-case)>
+```
 
 3. Add the `IconProps` struct to your project to be used with the generated icons.
 
@@ -78,7 +88,10 @@ type IconProps struct {
 #### For HTML icons
 
 Add the package to your project.
-* For HTML icons `go get github.com/dimmerz92/go-lucide-icons/pkg/html/icons`
+* For HTML icons
+```bash
+go get github.com/dimmerz92/go-lucide-icons/pkg/html/icons
+```
 
 All componenents have the same name as the lucide icons and remain in kebab case.
 
