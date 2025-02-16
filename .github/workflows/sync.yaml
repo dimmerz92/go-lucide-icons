@@ -40,7 +40,8 @@ jobs:
         run: |
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git config user.name "github-actions[bot]"
-          go run ./main.go
+          go install github.com/a-h/templ/cmd/templ@latest
+          go run ./cmd/golucide/main.go sync
           rm -r ./lucide
           git commit -am "ci: sync with lucide icons repo"
 
