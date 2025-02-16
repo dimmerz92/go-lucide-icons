@@ -1,3 +1,4 @@
+{{ define "spline" }}
 <svg
   xmlns="http://www.w3.org/2000/svg"
   width="24"
@@ -9,12 +10,14 @@
   stroke-linecap="round"
   stroke-linejoin="round"
 
-	{{ range $value := . }}
-		{{ $value }}
-	{{ end }}
+  {{ range $value := . }}
+    {{ $value }}
+  {{ end }}
 >
 
   <circle cx="19" cy="5" r="2" />
   <circle cx="5" cy="19" r="2" />
   <path d="M5 17A12 12 0 0 1 17 5" />
 </svg>
+
+{{ end }}

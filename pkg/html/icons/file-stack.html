@@ -1,3 +1,4 @@
+{{ define "file-stack" }}
 <svg
   xmlns="http://www.w3.org/2000/svg"
   width="24"
@@ -9,9 +10,9 @@
   stroke-linecap="round"
   stroke-linejoin="round"
 
-	{{ range $value := . }}
-		{{ $value }}
-	{{ end }}
+  {{ range $value := . }}
+    {{ $value }}
+  {{ end }}
 >
 
   <path d="M21 7h-3a2 2 0 0 1-2-2V2" />
@@ -19,3 +20,5 @@
   <path d="M7 8v8.8c0 .3.2.6.4.8.2.2.5.4.8.4H15" />
   <path d="M3 12v8.8c0 .3.2.6.4.8.2.2.5.4.8.4H11" />
 </svg>
+
+{{ end }}

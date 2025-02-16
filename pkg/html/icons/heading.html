@@ -1,3 +1,4 @@
+{{ define "heading" }}
 <svg
   xmlns="http://www.w3.org/2000/svg"
   width="24"
@@ -9,12 +10,14 @@
   stroke-linecap="round"
   stroke-linejoin="round"
 
-	{{ range $value := . }}
-		{{ $value }}
-	{{ end }}
+  {{ range $value := . }}
+    {{ $value }}
+  {{ end }}
 >
 
   <path d="M6 12h12" />
   <path d="M6 20V4" />
   <path d="M18 20V4" />
 </svg>
+
+{{ end }}

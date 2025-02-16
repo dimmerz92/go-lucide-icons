@@ -1,3 +1,4 @@
+{{ define "thermometer-sun" }}
 <svg
   xmlns="http://www.w3.org/2000/svg"
   width="24"
@@ -9,9 +10,9 @@
   stroke-linecap="round"
   stroke-linejoin="round"
 
-	{{ range $value := . }}
-		{{ $value }}
-	{{ end }}
+  {{ range $value := . }}
+    {{ $value }}
+  {{ end }}
 >
 
   <path d="M12 9a4 4 0 0 0-2 7.5" />
@@ -21,3 +22,5 @@
   <path d="M4 13H2" />
   <path d="M6.34 7.34 4.93 5.93" />
 </svg>
+
+{{ end }}

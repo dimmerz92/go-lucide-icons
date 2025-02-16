@@ -1,3 +1,4 @@
+{{ define "biohazard" }}
 <svg
   xmlns="http://www.w3.org/2000/svg"
   width="24"
@@ -9,9 +10,9 @@
   stroke-linecap="round"
   stroke-linejoin="round"
 
-	{{ range $value := . }}
-		{{ $value }}
-	{{ end }}
+  {{ range $value := . }}
+    {{ $value }}
+  {{ end }}
 >
 
   <circle cx="12" cy="11.9" r="2" />
@@ -25,3 +26,5 @@
   <path d="M17 16.4c.7-.7 1.2-1.6 1.5-2.5" />
   <path d="M5.5 13.9c.3.9.8 1.8 1.5 2.5" />
 </svg>
+
+{{ end }}

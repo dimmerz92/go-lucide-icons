@@ -1,3 +1,4 @@
+{{ define "car-front" }}
 <svg
   xmlns="http://www.w3.org/2000/svg"
   width="24"
@@ -9,9 +10,9 @@
   stroke-linecap="round"
   stroke-linejoin="round"
 
-	{{ range $value := . }}
-		{{ $value }}
-	{{ end }}
+  {{ range $value := . }}
+    {{ $value }}
+  {{ end }}
 >
 
   <path d="m21 8-2 2-1.5-3.7A2 2 0 0 0 15.646 5H8.4a2 2 0 0 0-1.903 1.257L5 10 3 8" />
@@ -21,3 +22,5 @@
   <path d="M5 18v2" />
   <path d="M19 18v2" />
 </svg>
+
+{{ end }}

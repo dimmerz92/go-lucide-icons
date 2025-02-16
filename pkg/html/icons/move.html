@@ -1,3 +1,4 @@
+{{ define "move" }}
 <svg
   xmlns="http://www.w3.org/2000/svg"
   width="24"
@@ -9,9 +10,9 @@
   stroke-linecap="round"
   stroke-linejoin="round"
 
-	{{ range $value := . }}
-		{{ $value }}
-	{{ end }}
+  {{ range $value := . }}
+    {{ $value }}
+  {{ end }}
 >
 
   <path d="M12 2v20" />
@@ -21,3 +22,5 @@
   <path d="m5 9-3 3 3 3" />
   <path d="m9 5 3-3 3 3" />
 </svg>
+
+{{ end }}

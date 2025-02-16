@@ -1,3 +1,4 @@
+{{ define "switch-camera" }}
 <svg
   xmlns="http://www.w3.org/2000/svg"
   width="24"
@@ -9,9 +10,9 @@
   stroke-linecap="round"
   stroke-linejoin="round"
 
-	{{ range $value := . }}
-		{{ $value }}
-	{{ end }}
+  {{ range $value := . }}
+    {{ $value }}
+  {{ end }}
 >
 
   <path d="M11 19H4a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h5" />
@@ -20,3 +21,5 @@
   <path d="m18 22-3-3 3-3" />
   <path d="m6 2 3 3-3 3" />
 </svg>
+
+{{ end }}

@@ -1,3 +1,4 @@
+{{ define "clipboard-list" }}
 <svg
   xmlns="http://www.w3.org/2000/svg"
   width="24"
@@ -9,9 +10,9 @@
   stroke-linecap="round"
   stroke-linejoin="round"
 
-	{{ range $value := . }}
-		{{ $value }}
-	{{ end }}
+  {{ range $value := . }}
+    {{ $value }}
+  {{ end }}
 >
 
   <rect width="8" height="4" x="8" y="2" rx="1" ry="1" />
@@ -21,3 +22,5 @@
   <path d="M8 11h.01" />
   <path d="M8 16h.01" />
 </svg>
+
+{{ end }}

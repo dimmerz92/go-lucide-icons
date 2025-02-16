@@ -1,3 +1,4 @@
+{{ define "qr-code" }}
 <svg
   xmlns="http://www.w3.org/2000/svg"
   width="24"
@@ -9,9 +10,9 @@
   stroke-linecap="round"
   stroke-linejoin="round"
 
-	{{ range $value := . }}
-		{{ $value }}
-	{{ end }}
+  {{ range $value := . }}
+    {{ $value }}
+  {{ end }}
 >
 
   <rect width="5" height="5" x="3" y="3" rx="1" />
@@ -27,3 +28,5 @@
   <path d="M21 12v.01" />
   <path d="M12 21v-1" />
 </svg>
+
+{{ end }}

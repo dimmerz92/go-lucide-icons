@@ -1,3 +1,4 @@
+{{ define "tornado" }}
 <svg
   xmlns="http://www.w3.org/2000/svg"
   width="24"
@@ -9,9 +10,9 @@
   stroke-linecap="round"
   stroke-linejoin="round"
 
-	{{ range $value := . }}
-		{{ $value }}
-	{{ end }}
+  {{ range $value := . }}
+    {{ $value }}
+  {{ end }}
 >
 
   <path d="M21 4H3" />
@@ -20,3 +21,5 @@
   <path d="M16 16h-6" />
   <path d="M11 20H9" />
 </svg>
+
+{{ end }}

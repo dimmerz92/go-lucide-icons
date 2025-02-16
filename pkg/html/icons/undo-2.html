@@ -1,3 +1,4 @@
+{{ define "undo-2" }}
 <svg
   xmlns="http://www.w3.org/2000/svg"
   width="24"
@@ -9,11 +10,13 @@
   stroke-linecap="round"
   stroke-linejoin="round"
 
-	{{ range $value := . }}
-		{{ $value }}
-	{{ end }}
+  {{ range $value := . }}
+    {{ $value }}
+  {{ end }}
 >
 
   <path d="M9 14 4 9l5-5" />
   <path d="M4 9h10.5a5.5 5.5 0 0 1 5.5 5.5a5.5 5.5 0 0 1-5.5 5.5H11" />
 </svg>
+
+{{ end }}

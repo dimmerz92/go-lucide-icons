@@ -1,3 +1,4 @@
+{{ define "wheat-off" }}
 <svg
   xmlns="http://www.w3.org/2000/svg"
   width="24"
@@ -9,9 +10,9 @@
   stroke-linecap="round"
   stroke-linejoin="round"
 
-	{{ range $value := . }}
-		{{ $value }}
-	{{ end }}
+  {{ range $value := . }}
+    {{ $value }}
+  {{ end }}
 >
 
   <path d="m2 22 10-10" />
@@ -25,3 +26,5 @@
   <path d="M18.74 13.09c.26-.15.51-.34.73-.56L21 11l-1.53-1.53a3.5 3.5 0 0 0-4.62-.28" />
   <line x1="2" x2="22" y1="2" y2="22" />
 </svg>
+
+{{ end }}

@@ -1,3 +1,4 @@
+{{ define "plus" }}
 <svg
   xmlns="http://www.w3.org/2000/svg"
   width="24"
@@ -9,11 +10,13 @@
   stroke-linecap="round"
   stroke-linejoin="round"
 
-	{{ range $value := . }}
-		{{ $value }}
-	{{ end }}
+  {{ range $value := . }}
+    {{ $value }}
+  {{ end }}
 >
 
   <path d="M5 12h14" />
   <path d="M12 5v14" />
 </svg>
+
+{{ end }}

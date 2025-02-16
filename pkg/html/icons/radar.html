@@ -1,3 +1,4 @@
+{{ define "radar" }}
 <svg
   xmlns="http://www.w3.org/2000/svg"
   width="24"
@@ -9,9 +10,9 @@
   stroke-linecap="round"
   stroke-linejoin="round"
 
-	{{ range $value := . }}
-		{{ $value }}
-	{{ end }}
+  {{ range $value := . }}
+    {{ $value }}
+  {{ end }}
 >
 
   <path d="M19.07 4.93A10 10 0 0 0 6.99 3.34" />
@@ -23,3 +24,5 @@
   <circle cx="12" cy="12" r="2" />
   <path d="m13.41 10.59 5.66-5.66" />
 </svg>
+
+{{ end }}

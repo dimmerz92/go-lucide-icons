@@ -1,3 +1,4 @@
+{{ define "snowflake" }}
 <svg
   xmlns="http://www.w3.org/2000/svg"
   width="24"
@@ -9,9 +10,9 @@
   stroke-linecap="round"
   stroke-linejoin="round"
 
-	{{ range $value := . }}
-		{{ $value }}
-	{{ end }}
+  {{ range $value := . }}
+    {{ $value }}
+  {{ end }}
 >
 
   <path d="m10 20-1.25-2.5L6 18" />
@@ -27,3 +28,5 @@
   <path d="m7 21 3-6-1.5-3" />
   <path d="m7 3 3 6h4" />
 </svg>
+
+{{ end }}

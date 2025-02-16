@@ -1,3 +1,4 @@
+{{ define "antenna" }}
 <svg
   xmlns="http://www.w3.org/2000/svg"
   width="24"
@@ -9,9 +10,9 @@
   stroke-linecap="round"
   stroke-linejoin="round"
 
-	{{ range $value := . }}
-		{{ $value }}
-	{{ end }}
+  {{ range $value := . }}
+    {{ $value }}
+  {{ end }}
 >
 
   <path d="M2 12 7 2" />
@@ -21,3 +22,5 @@
   <path d="M4.5 7h15" />
   <path d="M12 16v6" />
 </svg>
+
+{{ end }}

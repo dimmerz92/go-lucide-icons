@@ -1,3 +1,4 @@
+{{ define "land-plot" }}
 <svg
   xmlns="http://www.w3.org/2000/svg"
   width="24"
@@ -9,9 +10,9 @@
   stroke-linecap="round"
   stroke-linejoin="round"
 
-	{{ range $value := . }}
-		{{ $value }}
-	{{ end }}
+  {{ range $value := . }}
+    {{ $value }}
+  {{ end }}
 >
 
   <path d="m12 8 6-3-6-3v10" />
@@ -19,3 +20,5 @@
   <path d="m6.49 12.85 11.02 6.3" />
   <path d="M17.51 12.85 6.5 19.15" />
 </svg>
+
+{{ end }}

@@ -1,3 +1,4 @@
+{{ define "search-code" }}
 <svg
   xmlns="http://www.w3.org/2000/svg"
   width="24"
@@ -9,9 +10,9 @@
   stroke-linecap="round"
   stroke-linejoin="round"
 
-	{{ range $value := . }}
-		{{ $value }}
-	{{ end }}
+  {{ range $value := . }}
+    {{ $value }}
+  {{ end }}
 >
 
   <path d="m13 13.5 2-2.5-2-2.5" />
@@ -19,3 +20,5 @@
   <path d="M9 8.5 7 11l2 2.5" />
   <circle cx="11" cy="11" r="8" />
 </svg>
+
+{{ end }}

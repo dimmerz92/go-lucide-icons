@@ -1,3 +1,4 @@
+{{ define "letter-text" }}
 <svg
   xmlns="http://www.w3.org/2000/svg"
   width="24"
@@ -9,9 +10,9 @@
   stroke-linecap="round"
   stroke-linejoin="round"
 
-	{{ range $value := . }}
-		{{ $value }}
-	{{ end }}
+  {{ range $value := . }}
+    {{ $value }}
+  {{ end }}
 >
 
   <path d="M15 12h6" />
@@ -20,3 +21,5 @@
   <path d="M3 18h18" />
   <path d="M4 11h6" />
 </svg>
+
+{{ end }}

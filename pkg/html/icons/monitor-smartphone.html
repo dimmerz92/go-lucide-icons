@@ -1,3 +1,4 @@
+{{ define "monitor-smartphone" }}
 <svg
   xmlns="http://www.w3.org/2000/svg"
   width="24"
@@ -9,9 +10,9 @@
   stroke-linecap="round"
   stroke-linejoin="round"
 
-	{{ range $value := . }}
-		{{ $value }}
-	{{ end }}
+  {{ range $value := . }}
+    {{ $value }}
+  {{ end }}
 >
 
   <path d="M18 8V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h8" />
@@ -19,3 +20,5 @@
   <path d="M7 19h5" />
   <rect width="6" height="10" x="16" y="12" rx="2" />
 </svg>
+
+{{ end }}

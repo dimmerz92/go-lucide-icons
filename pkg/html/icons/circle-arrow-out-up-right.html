@@ -1,3 +1,4 @@
+{{ define "circle-arrow-out-up-right" }}
 <svg
   xmlns="http://www.w3.org/2000/svg"
   width="24"
@@ -9,12 +10,14 @@
   stroke-linecap="round"
   stroke-linejoin="round"
 
-	{{ range $value := . }}
-		{{ $value }}
-	{{ end }}
+  {{ range $value := . }}
+    {{ $value }}
+  {{ end }}
 >
 
   <path d="M22 12A10 10 0 1 1 12 2" />
   <path d="M22 2 12 12" />
   <path d="M16 2h6v6" />
 </svg>
+
+{{ end }}

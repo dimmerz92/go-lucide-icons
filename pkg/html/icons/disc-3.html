@@ -1,3 +1,4 @@
+{{ define "disc-3" }}
 <svg
   xmlns="http://www.w3.org/2000/svg"
   width="24"
@@ -9,9 +10,9 @@
   stroke-linecap="round"
   stroke-linejoin="round"
 
-	{{ range $value := . }}
-		{{ $value }}
-	{{ end }}
+  {{ range $value := . }}
+    {{ $value }}
+  {{ end }}
 >
 
   <circle cx="12" cy="12" r="10" />
@@ -19,3 +20,5 @@
   <circle cx="12" cy="12" r="2" />
   <path d="M18 12c0 1.7-.7 3.2-1.8 4.2" />
 </svg>
+
+{{ end }}

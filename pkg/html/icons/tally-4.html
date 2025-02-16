@@ -1,3 +1,4 @@
+{{ define "tally-4" }}
 <svg
   xmlns="http://www.w3.org/2000/svg"
   width="24"
@@ -9,9 +10,9 @@
   stroke-linecap="round"
   stroke-linejoin="round"
 
-	{{ range $value := . }}
-		{{ $value }}
-	{{ end }}
+  {{ range $value := . }}
+    {{ $value }}
+  {{ end }}
 >
 
   <path d="M4 4v16" />
@@ -19,3 +20,5 @@
   <path d="M14 4v16" />
   <path d="M19 4v16" />
 </svg>
+
+{{ end }}

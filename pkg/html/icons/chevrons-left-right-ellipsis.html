@@ -1,3 +1,4 @@
+{{ define "chevrons-left-right-ellipsis" }}
 <svg
   xmlns="http://www.w3.org/2000/svg"
   width="24"
@@ -9,9 +10,9 @@
   stroke-linecap="round"
   stroke-linejoin="round"
 
-	{{ range $value := . }}
-		{{ $value }}
-	{{ end }}
+  {{ range $value := . }}
+    {{ $value }}
+  {{ end }}
 >
 
   <path d="m18 8 4 4-4 4" />
@@ -20,3 +21,5 @@
   <path d="M12 12h.01" />
   <path d="M16 12h.01" />
 </svg>
+
+{{ end }}

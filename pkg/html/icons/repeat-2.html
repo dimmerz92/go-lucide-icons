@@ -1,3 +1,4 @@
+{{ define "repeat-2" }}
 <svg
   xmlns="http://www.w3.org/2000/svg"
   width="24"
@@ -9,9 +10,9 @@
   stroke-linecap="round"
   stroke-linejoin="round"
 
-	{{ range $value := . }}
-		{{ $value }}
-	{{ end }}
+  {{ range $value := . }}
+    {{ $value }}
+  {{ end }}
 >
 
   <path d="m2 9 3-3 3 3" />
@@ -19,3 +20,5 @@
   <path d="m22 15-3 3-3-3" />
   <path d="M11 6h6a2 2 0 0 1 2 2v10" />
 </svg>
+
+{{ end }}

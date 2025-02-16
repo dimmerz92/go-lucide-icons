@@ -1,3 +1,4 @@
+{{ define "radio-receiver" }}
 <svg
   xmlns="http://www.w3.org/2000/svg"
   width="24"
@@ -9,9 +10,9 @@
   stroke-linecap="round"
   stroke-linejoin="round"
 
-	{{ range $value := . }}
-		{{ $value }}
-	{{ end }}
+  {{ range $value := . }}
+    {{ $value }}
+  {{ end }}
 >
 
   <path d="M5 16v2" />
@@ -19,3 +20,5 @@
   <rect width="20" height="8" x="2" y="8" rx="2" />
   <path d="M18 12h.01" />
 </svg>
+
+{{ end }}

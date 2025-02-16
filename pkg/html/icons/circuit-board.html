@@ -1,3 +1,4 @@
+{{ define "circuit-board" }}
 <svg
   xmlns="http://www.w3.org/2000/svg"
   width="24"
@@ -9,9 +10,9 @@
   stroke-linecap="round"
   stroke-linejoin="round"
 
-	{{ range $value := . }}
-		{{ $value }}
-	{{ end }}
+  {{ range $value := . }}
+    {{ $value }}
+  {{ end }}
 >
 
   <rect width="18" height="18" x="3" y="3" rx="2" />
@@ -20,3 +21,5 @@
   <path d="M7 21v-4a2 2 0 0 1 2-2h4" />
   <circle cx="15" cy="15" r="2" />
 </svg>
+
+{{ end }}

@@ -1,3 +1,4 @@
+{{ define "sliders-horizontal" }}
 <svg
   xmlns="http://www.w3.org/2000/svg"
   width="24"
@@ -9,9 +10,9 @@
   stroke-linecap="round"
   stroke-linejoin="round"
 
-	{{ range $value := . }}
-		{{ $value }}
-	{{ end }}
+  {{ range $value := . }}
+    {{ $value }}
+  {{ end }}
 >
 
   <line x1="21" x2="14" y1="4" y2="4" />
@@ -24,3 +25,5 @@
   <line x1="8" x2="8" y1="10" y2="14" />
   <line x1="16" x2="16" y1="18" y2="22" />
 </svg>
+
+{{ end }}

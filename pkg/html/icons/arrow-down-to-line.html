@@ -1,3 +1,4 @@
+{{ define "arrow-down-to-line" }}
 <svg
   xmlns="http://www.w3.org/2000/svg"
   width="24"
@@ -9,12 +10,14 @@
   stroke-linecap="round"
   stroke-linejoin="round"
 
-	{{ range $value := . }}
-		{{ $value }}
-	{{ end }}
+  {{ range $value := . }}
+    {{ $value }}
+  {{ end }}
 >
 
   <path d="M12 17V3" />
   <path d="m6 11 6 6 6-6" />
   <path d="M19 21H5" />
 </svg>
+
+{{ end }}

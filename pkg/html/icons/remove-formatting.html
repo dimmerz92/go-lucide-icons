@@ -1,3 +1,4 @@
+{{ define "remove-formatting" }}
 <svg
   xmlns="http://www.w3.org/2000/svg"
   width="24"
@@ -9,9 +10,9 @@
   stroke-linecap="round"
   stroke-linejoin="round"
 
-	{{ range $value := . }}
-		{{ $value }}
-	{{ end }}
+  {{ range $value := . }}
+    {{ $value }}
+  {{ end }}
 >
 
   <path d="M4 7V4h16v3" />
@@ -20,3 +21,5 @@
   <path d="m15 15 5 5" />
   <path d="m20 15-5 5" />
 </svg>
+
+{{ end }}

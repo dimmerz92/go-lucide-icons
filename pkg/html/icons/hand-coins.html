@@ -1,3 +1,4 @@
+{{ define "hand-coins" }}
 <svg
   xmlns="http://www.w3.org/2000/svg"
   width="24"
@@ -9,9 +10,9 @@
   stroke-linecap="round"
   stroke-linejoin="round"
 
-	{{ range $value := . }}
-		{{ $value }}
-	{{ end }}
+  {{ range $value := . }}
+    {{ $value }}
+  {{ end }}
 >
 
   <path d="M11 15h2a2 2 0 1 0 0-4h-3c-.6 0-1.1.2-1.4.6L3 17" />
@@ -20,3 +21,5 @@
   <circle cx="16" cy="9" r="2.9" />
   <circle cx="6" cy="5" r="3" />
 </svg>
+
+{{ end }}

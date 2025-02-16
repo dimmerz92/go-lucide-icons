@@ -1,3 +1,4 @@
+{{ define "grip-vertical" }}
 <svg
   xmlns="http://www.w3.org/2000/svg"
   width="24"
@@ -9,9 +10,9 @@
   stroke-linecap="round"
   stroke-linejoin="round"
 
-	{{ range $value := . }}
-		{{ $value }}
-	{{ end }}
+  {{ range $value := . }}
+    {{ $value }}
+  {{ end }}
 >
 
   <circle cx="9" cy="12" r="1" />
@@ -21,3 +22,5 @@
   <circle cx="15" cy="5" r="1" />
   <circle cx="15" cy="19" r="1" />
 </svg>
+
+{{ end }}

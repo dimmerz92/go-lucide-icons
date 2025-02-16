@@ -1,3 +1,4 @@
+{{ define "calendar-x" }}
 <svg
   xmlns="http://www.w3.org/2000/svg"
   width="24"
@@ -9,9 +10,9 @@
   stroke-linecap="round"
   stroke-linejoin="round"
 
-	{{ range $value := . }}
-		{{ $value }}
-	{{ end }}
+  {{ range $value := . }}
+    {{ $value }}
+  {{ end }}
 >
 
   <path d="M8 2v4" />
@@ -21,3 +22,5 @@
   <path d="m14 14-4 4" />
   <path d="m10 14 4 4" />
 </svg>
+
+{{ end }}

@@ -1,3 +1,4 @@
+{{ define "satellite" }}
 <svg
   xmlns="http://www.w3.org/2000/svg"
   width="24"
@@ -9,9 +10,9 @@
   stroke-linecap="round"
   stroke-linejoin="round"
 
-	{{ range $value := . }}
-		{{ $value }}
-	{{ end }}
+  {{ range $value := . }}
+    {{ $value }}
+  {{ end }}
 >
 
   <path d="M13 7 9 3 5 7l4 4" />
@@ -20,3 +21,5 @@
   <path d="m16 8 3-3" />
   <path d="M9 21a6 6 0 0 0-6-6" />
 </svg>
+
+{{ end }}

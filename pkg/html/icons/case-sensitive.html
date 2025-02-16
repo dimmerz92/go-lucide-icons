@@ -1,3 +1,4 @@
+{{ define "case-sensitive" }}
 <svg
   xmlns="http://www.w3.org/2000/svg"
   width="24"
@@ -9,9 +10,9 @@
   stroke-linecap="round"
   stroke-linejoin="round"
 
-	{{ range $value := . }}
-		{{ $value }}
-	{{ end }}
+  {{ range $value := . }}
+    {{ $value }}
+  {{ end }}
 >
 
   <path d="m3 15 4-8 4 8" />
@@ -19,3 +20,5 @@
   <circle cx="18" cy="12" r="3" />
   <path d="M21 9v6" />
 </svg>
+
+{{ end }}

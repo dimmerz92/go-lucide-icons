@@ -1,3 +1,4 @@
+{{ define "notebook" }}
 <svg
   xmlns="http://www.w3.org/2000/svg"
   width="24"
@@ -9,9 +10,9 @@
   stroke-linecap="round"
   stroke-linejoin="round"
 
-	{{ range $value := . }}
-		{{ $value }}
-	{{ end }}
+  {{ range $value := . }}
+    {{ $value }}
+  {{ end }}
 >
 
   <path d="M2 6h4" />
@@ -21,3 +22,5 @@
   <rect width="16" height="20" x="4" y="2" rx="2" />
   <path d="M16 2v20" />
 </svg>
+
+{{ end }}

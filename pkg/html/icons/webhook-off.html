@@ -1,3 +1,4 @@
+{{ define "webhook-off" }}
 <svg
   xmlns="http://www.w3.org/2000/svg"
   width="24"
@@ -9,9 +10,9 @@
   stroke-linecap="round"
   stroke-linejoin="round"
 
-	{{ range $value := . }}
-		{{ $value }}
-	{{ end }}
+  {{ range $value := . }}
+    {{ $value }}
+  {{ end }}
 >
 
   <path d="M17 17h-5c-1.09-.02-1.94.92-2.5 1.9A3 3 0 1 1 2.57 15" />
@@ -22,3 +23,5 @@
   <path d="m12 6 .6 1" />
   <path d="m2 2 20 20" />
 </svg>
+
+{{ end }}

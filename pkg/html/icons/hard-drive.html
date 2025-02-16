@@ -1,3 +1,4 @@
+{{ define "hard-drive" }}
 <svg
   xmlns="http://www.w3.org/2000/svg"
   width="24"
@@ -9,9 +10,9 @@
   stroke-linecap="round"
   stroke-linejoin="round"
 
-	{{ range $value := . }}
-		{{ $value }}
-	{{ end }}
+  {{ range $value := . }}
+    {{ $value }}
+  {{ end }}
 >
 
   <line x1="22" x2="2" y1="12" y2="12" />
@@ -19,3 +20,5 @@
   <line x1="6" x2="6.01" y1="16" y2="16" />
   <line x1="10" x2="10.01" y1="16" y2="16" />
 </svg>
+
+{{ end }}

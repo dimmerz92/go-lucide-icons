@@ -1,3 +1,4 @@
+{{ define "wand" }}
 <svg
   xmlns="http://www.w3.org/2000/svg"
   width="24"
@@ -9,9 +10,9 @@
   stroke-linecap="round"
   stroke-linejoin="round"
 
-	{{ range $value := . }}
-		{{ $value }}
-	{{ end }}
+  {{ range $value := . }}
+    {{ $value }}
+  {{ end }}
 >
 
   <path d="M15 4V2" />
@@ -24,3 +25,5 @@
   <path d="m3 21 9-9" />
   <path d="M12.2 6.2 11 5" />
 </svg>
+
+{{ end }}

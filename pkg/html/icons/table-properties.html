@@ -1,3 +1,4 @@
+{{ define "table-properties" }}
 <svg
   xmlns="http://www.w3.org/2000/svg"
   width="24"
@@ -9,9 +10,9 @@
   stroke-linecap="round"
   stroke-linejoin="round"
 
-	{{ range $value := . }}
-		{{ $value }}
-	{{ end }}
+  {{ range $value := . }}
+    {{ $value }}
+  {{ end }}
 >
 
   <path d="M15 3v18" />
@@ -19,3 +20,5 @@
   <path d="M21 9H3" />
   <path d="M21 15H3" />
 </svg>
+
+{{ end }}

@@ -1,3 +1,4 @@
+{{ define "cpu" }}
 <svg
   xmlns="http://www.w3.org/2000/svg"
   width="24"
@@ -9,9 +10,9 @@
   stroke-linecap="round"
   stroke-linejoin="round"
 
-	{{ range $value := . }}
-		{{ $value }}
-	{{ end }}
+  {{ range $value := . }}
+    {{ $value }}
+  {{ end }}
 >
 
   <rect width="16" height="16" x="4" y="4" rx="2" />
@@ -25,3 +26,5 @@
   <path d="M9 2v2" />
   <path d="M9 20v2" />
 </svg>
+
+{{ end }}

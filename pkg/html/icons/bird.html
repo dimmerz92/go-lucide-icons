@@ -1,3 +1,4 @@
+{{ define "bird" }}
 <svg
   xmlns="http://www.w3.org/2000/svg"
   width="24"
@@ -9,9 +10,9 @@
   stroke-linecap="round"
   stroke-linejoin="round"
 
-	{{ range $value := . }}
-		{{ $value }}
-	{{ end }}
+  {{ range $value := . }}
+    {{ $value }}
+  {{ end }}
 >
 
   <path d="M16 7h.01" />
@@ -21,3 +22,5 @@
   <path d="M14 17.75V21" />
   <path d="M7 18a6 6 0 0 0 3.84-10.61" />
 </svg>
+
+{{ end }}

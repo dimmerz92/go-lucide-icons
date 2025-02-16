@@ -1,3 +1,4 @@
+{{ define "git-branch-plus" }}
 <svg
   xmlns="http://www.w3.org/2000/svg"
   width="24"
@@ -9,9 +10,9 @@
   stroke-linecap="round"
   stroke-linejoin="round"
 
-	{{ range $value := . }}
-		{{ $value }}
-	{{ end }}
+  {{ range $value := . }}
+    {{ $value }}
+  {{ end }}
 >
 
   <path d="M6 3v12" />
@@ -21,3 +22,5 @@
   <path d="M18 15v6" />
   <path d="M21 18h-6" />
 </svg>
+
+{{ end }}

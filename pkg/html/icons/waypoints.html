@@ -1,3 +1,4 @@
+{{ define "waypoints" }}
 <svg
   xmlns="http://www.w3.org/2000/svg"
   width="24"
@@ -9,9 +10,9 @@
   stroke-linecap="round"
   stroke-linejoin="round"
 
-	{{ range $value := . }}
-		{{ $value }}
-	{{ end }}
+  {{ range $value := . }}
+    {{ $value }}
+  {{ end }}
 >
 
   <circle cx="12" cy="4.5" r="2.5" />
@@ -22,3 +23,5 @@
   <path d="m13.8 17.7 3.9-3.9" />
   <circle cx="12" cy="19.5" r="2.5" />
 </svg>
+
+{{ end }}

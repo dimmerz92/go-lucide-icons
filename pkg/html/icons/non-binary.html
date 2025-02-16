@@ -1,3 +1,4 @@
+{{ define "non-binary" }}
 <svg
   xmlns="http://www.w3.org/2000/svg"
   width="24"
@@ -9,9 +10,9 @@
   stroke-linecap="round"
   stroke-linejoin="round"
 
-	{{ range $value := . }}
-		{{ $value }}
-	{{ end }}
+  {{ range $value := . }}
+    {{ $value }}
+  {{ end }}
 >
 
   <path d="M12 2v10" />
@@ -19,3 +20,5 @@
   <path d="m9 8 6-4" />
   <circle cx="12" cy="17" r="5" />
 </svg>
+
+{{ end }}

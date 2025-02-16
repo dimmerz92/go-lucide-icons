@@ -1,3 +1,4 @@
+{{ define "pilcrow-left" }}
 <svg
   xmlns="http://www.w3.org/2000/svg"
   width="24"
@@ -9,9 +10,9 @@
   stroke-linecap="round"
   stroke-linejoin="round"
 
-	{{ range $value := . }}
-		{{ $value }}
-	{{ end }}
+  {{ range $value := . }}
+    {{ $value }}
+  {{ end }}
 >
 
   <path d="M14 3v11" />
@@ -20,3 +21,5 @@
   <path d="M22 18H2l4-4" />
   <path d="m6 22-4-4" />
 </svg>
+
+{{ end }}

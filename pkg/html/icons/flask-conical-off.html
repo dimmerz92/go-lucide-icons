@@ -1,3 +1,4 @@
+{{ define "flask-conical-off" }}
 <svg
   xmlns="http://www.w3.org/2000/svg"
   width="24"
@@ -9,9 +10,9 @@
   stroke-linecap="round"
   stroke-linejoin="round"
 
-	{{ range $value := . }}
-		{{ $value }}
-	{{ end }}
+  {{ range $value := . }}
+    {{ $value }}
+  {{ end }}
 >
 
   <path d="M10 2v2.343" />
@@ -21,3 +22,5 @@
   <path d="M6.453 15H15" />
   <path d="M8.5 2h7" />
 </svg>
+
+{{ end }}

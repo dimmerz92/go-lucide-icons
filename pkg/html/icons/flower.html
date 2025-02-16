@@ -1,3 +1,4 @@
+{{ define "flower" }}
 <svg
   xmlns="http://www.w3.org/2000/svg"
   width="24"
@@ -9,9 +10,9 @@
   stroke-linecap="round"
   stroke-linejoin="round"
 
-	{{ range $value := . }}
-		{{ $value }}
-	{{ end }}
+  {{ range $value := . }}
+    {{ $value }}
+  {{ end }}
 >
 
   <circle cx="12" cy="12" r="3" />
@@ -25,3 +26,5 @@
   <path d="m8 16 1.88-1.88" />
   <path d="M14.12 14.12 16 16" />
 </svg>
+
+{{ end }}

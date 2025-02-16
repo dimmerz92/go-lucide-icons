@@ -1,3 +1,4 @@
+{{ define "cigarette-off" }}
 <svg
   xmlns="http://www.w3.org/2000/svg"
   width="24"
@@ -9,9 +10,9 @@
   stroke-linecap="round"
   stroke-linejoin="round"
 
-	{{ range $value := . }}
-		{{ $value }}
-	{{ end }}
+  {{ range $value := . }}
+    {{ $value }}
+  {{ end }}
 >
 
   <path d="M12 12H3a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h13" />
@@ -21,3 +22,5 @@
   <path d="M22 8c0-2.5-2-2.5-2-5" />
   <path d="M7 12v4" />
 </svg>
+
+{{ end }}

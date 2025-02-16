@@ -1,3 +1,4 @@
+{{ define "eye-closed" }}
 <svg
   xmlns="http://www.w3.org/2000/svg"
   width="24"
@@ -9,9 +10,9 @@
   stroke-linecap="round"
   stroke-linejoin="round"
 
-	{{ range $value := . }}
-		{{ $value }}
-	{{ end }}
+  {{ range $value := . }}
+    {{ $value }}
+  {{ end }}
 >
 
   <path d="m15 18-.722-3.25" />
@@ -20,3 +21,5 @@
   <path d="m4 15 1.726-2.05" />
   <path d="m9 18 .722-3.25" />
 </svg>
+
+{{ end }}

@@ -1,3 +1,4 @@
+{{ define "indent-decrease" }}
 <svg
   xmlns="http://www.w3.org/2000/svg"
   width="24"
@@ -9,9 +10,9 @@
   stroke-linecap="round"
   stroke-linejoin="round"
 
-	{{ range $value := . }}
-		{{ $value }}
-	{{ end }}
+  {{ range $value := . }}
+    {{ $value }}
+  {{ end }}
 >
 
   <path d="M21 12H11" />
@@ -19,3 +20,5 @@
   <path d="M21 6H11" />
   <path d="m7 8-4 4 4 4" />
 </svg>
+
+{{ end }}

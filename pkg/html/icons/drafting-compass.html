@@ -1,3 +1,4 @@
+{{ define "drafting-compass" }}
 <svg
   xmlns="http://www.w3.org/2000/svg"
   width="24"
@@ -9,9 +10,9 @@
   stroke-linecap="round"
   stroke-linejoin="round"
 
-	{{ range $value := . }}
-		{{ $value }}
-	{{ end }}
+  {{ range $value := . }}
+    {{ $value }}
+  {{ end }}
 >
 
   <path d="m12.99 6.74 1.93 3.44" />
@@ -20,3 +21,5 @@
   <path d="m3 21 8.02-14.26" />
   <circle cx="12" cy="5" r="2" />
 </svg>
+
+{{ end }}

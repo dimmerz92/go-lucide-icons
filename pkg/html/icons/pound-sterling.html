@@ -1,3 +1,4 @@
+{{ define "pound-sterling" }}
 <svg
   xmlns="http://www.w3.org/2000/svg"
   width="24"
@@ -9,9 +10,9 @@
   stroke-linecap="round"
   stroke-linejoin="round"
 
-	{{ range $value := . }}
-		{{ $value }}
-	{{ end }}
+  {{ range $value := . }}
+    {{ $value }}
+  {{ end }}
 >
 
   <path d="M18 7c0-5.333-8-5.333-8 0" />
@@ -19,3 +20,5 @@
   <path d="M6 21h12" />
   <path d="M6 13h10" />
 </svg>
+
+{{ end }}

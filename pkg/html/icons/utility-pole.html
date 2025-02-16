@@ -1,3 +1,4 @@
+{{ define "utility-pole" }}
 <svg
   xmlns="http://www.w3.org/2000/svg"
   width="24"
@@ -9,9 +10,9 @@
   stroke-linecap="round"
   stroke-linejoin="round"
 
-	{{ range $value := . }}
-		{{ $value }}
-	{{ end }}
+  {{ range $value := . }}
+    {{ $value }}
+  {{ end }}
 >
 
   <path d="M12 2v20" />
@@ -22,3 +23,5 @@
   <path d="M21 3v2" />
   <path d="m19 5-7 7-7-7" />
 </svg>
+
+{{ end }}

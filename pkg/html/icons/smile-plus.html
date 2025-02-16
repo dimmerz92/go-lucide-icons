@@ -1,3 +1,4 @@
+{{ define "smile-plus" }}
 <svg
   xmlns="http://www.w3.org/2000/svg"
   width="24"
@@ -9,9 +10,9 @@
   stroke-linecap="round"
   stroke-linejoin="round"
 
-	{{ range $value := . }}
-		{{ $value }}
-	{{ end }}
+  {{ range $value := . }}
+    {{ $value }}
+  {{ end }}
 >
 
   <path d="M22 11v1a10 10 0 1 1-9-10" />
@@ -21,3 +22,5 @@
   <path d="M16 5h6" />
   <path d="M19 2v6" />
 </svg>
+
+{{ end }}

@@ -1,3 +1,4 @@
+{{ define "square-dashed-kanban" }}
 <svg
   xmlns="http://www.w3.org/2000/svg"
   width="24"
@@ -9,9 +10,9 @@
   stroke-linecap="round"
   stroke-linejoin="round"
 
-	{{ range $value := . }}
-		{{ $value }}
-	{{ end }}
+  {{ range $value := . }}
+    {{ $value }}
+  {{ end }}
 >
 
   <path d="M8 7v7" />
@@ -30,3 +31,5 @@
   <path d="M3 14v1" />
   <path d="M3 9v1" />
 </svg>
+
+{{ end }}

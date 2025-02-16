@@ -1,3 +1,4 @@
+{{ define "school" }}
 <svg
   xmlns="http://www.w3.org/2000/svg"
   width="24"
@@ -9,9 +10,9 @@
   stroke-linecap="round"
   stroke-linejoin="round"
 
-	{{ range $value := . }}
-		{{ $value }}
-	{{ end }}
+  {{ range $value := . }}
+    {{ $value }}
+  {{ end }}
 >
 
   <path d="M14 22v-4a2 2 0 1 0-4 0v4" />
@@ -21,3 +22,5 @@
   <path d="M6 5v17" />
   <circle cx="12" cy="9" r="2" />
 </svg>
+
+{{ end }}

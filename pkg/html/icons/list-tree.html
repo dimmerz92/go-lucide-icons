@@ -1,3 +1,4 @@
+{{ define "list-tree" }}
 <svg
   xmlns="http://www.w3.org/2000/svg"
   width="24"
@@ -9,9 +10,9 @@
   stroke-linecap="round"
   stroke-linejoin="round"
 
-	{{ range $value := . }}
-		{{ $value }}
-	{{ end }}
+  {{ range $value := . }}
+    {{ $value }}
+  {{ end }}
 >
 
   <path d="M21 12h-8" />
@@ -20,3 +21,5 @@
   <path d="M3 6v4c0 1.1.9 2 2 2h3" />
   <path d="M3 10v6c0 1.1.9 2 2 2h3" />
 </svg>
+
+{{ end }}

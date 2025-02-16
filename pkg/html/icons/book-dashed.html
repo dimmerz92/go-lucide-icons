@@ -1,3 +1,4 @@
+{{ define "book-dashed" }}
 <svg
   xmlns="http://www.w3.org/2000/svg"
   width="24"
@@ -9,9 +10,9 @@
   stroke-linecap="round"
   stroke-linejoin="round"
 
-	{{ range $value := . }}
-		{{ $value }}
-	{{ end }}
+  {{ range $value := . }}
+    {{ $value }}
+  {{ end }}
 >
 
   <path d="M12 17h1.5" />
@@ -26,3 +27,5 @@
   <path d="M4 4.5A2.5 2.5 0 0 1 6.5 2H8" />
   <path d="M8 22H6.5a1 1 0 0 1 0-5H8" />
 </svg>
+
+{{ end }}

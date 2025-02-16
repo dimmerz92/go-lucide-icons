@@ -1,3 +1,4 @@
+{{ define "webcam" }}
 <svg
   xmlns="http://www.w3.org/2000/svg"
   width="24"
@@ -9,9 +10,9 @@
   stroke-linecap="round"
   stroke-linejoin="round"
 
-	{{ range $value := . }}
-		{{ $value }}
-	{{ end }}
+  {{ range $value := . }}
+    {{ $value }}
+  {{ end }}
 >
 
   <circle cx="12" cy="10" r="8" />
@@ -19,3 +20,5 @@
   <path d="M7 22h10" />
   <path d="M12 22v-4" />
 </svg>
+
+{{ end }}

@@ -1,3 +1,4 @@
+{{ define "clipboard-plus" }}
 <svg
   xmlns="http://www.w3.org/2000/svg"
   width="24"
@@ -9,9 +10,9 @@
   stroke-linecap="round"
   stroke-linejoin="round"
 
-	{{ range $value := . }}
-		{{ $value }}
-	{{ end }}
+  {{ range $value := . }}
+    {{ $value }}
+  {{ end }}
 >
 
   <rect width="8" height="4" x="8" y="2" rx="1" ry="1" />
@@ -19,3 +20,5 @@
   <path d="M9 14h6" />
   <path d="M12 17v-6" />
 </svg>
+
+{{ end }}

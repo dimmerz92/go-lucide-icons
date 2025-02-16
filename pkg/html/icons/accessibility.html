@@ -1,3 +1,4 @@
+{{ define "accessibility" }}
 <svg
   xmlns="http://www.w3.org/2000/svg"
   width="24"
@@ -9,9 +10,9 @@
   stroke-linecap="round"
   stroke-linejoin="round"
 
-	{{ range $value := . }}
-		{{ $value }}
-	{{ end }}
+  {{ range $value := . }}
+    {{ $value }}
+  {{ end }}
 >
 
   <circle cx="16" cy="4" r="1" />
@@ -20,3 +21,5 @@
   <path d="M4.24 14.5a5 5 0 0 0 6.88 6" />
   <path d="M13.76 17.5a5 5 0 0 0-6.88-6" />
 </svg>
+
+{{ end }}

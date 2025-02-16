@@ -1,3 +1,4 @@
+{{ define "skip-back" }}
 <svg
   xmlns="http://www.w3.org/2000/svg"
   width="24"
@@ -9,11 +10,13 @@
   stroke-linecap="round"
   stroke-linejoin="round"
 
-	{{ range $value := . }}
-		{{ $value }}
-	{{ end }}
+  {{ range $value := . }}
+    {{ $value }}
+  {{ end }}
 >
 
   <polygon points="19 20 9 12 19 4 19 20" />
   <line x1="5" x2="5" y1="19" y2="5" />
 </svg>
+
+{{ end }}

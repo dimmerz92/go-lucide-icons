@@ -1,3 +1,4 @@
+{{ define "locate-fixed" }}
 <svg
   xmlns="http://www.w3.org/2000/svg"
   width="24"
@@ -9,9 +10,9 @@
   stroke-linecap="round"
   stroke-linejoin="round"
 
-	{{ range $value := . }}
-		{{ $value }}
-	{{ end }}
+  {{ range $value := . }}
+    {{ $value }}
+  {{ end }}
 >
 
   <line x1="2" x2="5" y1="12" y2="12" />
@@ -21,3 +22,5 @@
   <circle cx="12" cy="12" r="7" />
   <circle cx="12" cy="12" r="3" />
 </svg>
+
+{{ end }}

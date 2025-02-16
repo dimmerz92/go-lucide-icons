@@ -1,3 +1,4 @@
+{{ define "message-circle-more" }}
 <svg
   xmlns="http://www.w3.org/2000/svg"
   width="24"
@@ -9,9 +10,9 @@
   stroke-linecap="round"
   stroke-linejoin="round"
 
-	{{ range $value := . }}
-		{{ $value }}
-	{{ end }}
+  {{ range $value := . }}
+    {{ $value }}
+  {{ end }}
 >
 
   <path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z" />
@@ -19,3 +20,5 @@
   <path d="M12 12h.01" />
   <path d="M16 12h.01" />
 </svg>
+
+{{ end }}

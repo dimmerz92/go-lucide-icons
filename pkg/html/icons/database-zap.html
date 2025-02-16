@@ -1,3 +1,4 @@
+{{ define "database-zap" }}
 <svg
   xmlns="http://www.w3.org/2000/svg"
   width="24"
@@ -9,9 +10,9 @@
   stroke-linecap="round"
   stroke-linejoin="round"
 
-	{{ range $value := . }}
-		{{ $value }}
-	{{ end }}
+  {{ range $value := . }}
+    {{ $value }}
+  {{ end }}
 >
 
   <ellipse cx="12" cy="5" rx="9" ry="3" />
@@ -20,3 +21,5 @@
   <path d="M21 12L18 17H22L19 22" />
   <path d="M3 12A9 3 0 0 0 14.59 14.87" />
 </svg>
+
+{{ end }}

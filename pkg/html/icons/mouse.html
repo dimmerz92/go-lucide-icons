@@ -1,3 +1,4 @@
+{{ define "mouse" }}
 <svg
   xmlns="http://www.w3.org/2000/svg"
   width="24"
@@ -9,11 +10,13 @@
   stroke-linecap="round"
   stroke-linejoin="round"
 
-	{{ range $value := . }}
-		{{ $value }}
-	{{ end }}
+  {{ range $value := . }}
+    {{ $value }}
+  {{ end }}
 >
 
   <rect x="5" y="2" width="14" height="20" rx="7" />
   <path d="M12 6v4" />
 </svg>
+
+{{ end }}

@@ -1,3 +1,4 @@
+{{ define "bug-off" }}
 <svg
   xmlns="http://www.w3.org/2000/svg"
   width="24"
@@ -9,9 +10,9 @@
   stroke-linecap="round"
   stroke-linejoin="round"
 
-	{{ range $value := . }}
-		{{ $value }}
-	{{ end }}
+  {{ range $value := . }}
+    {{ $value }}
+  {{ end }}
 >
 
   <path d="M15 7.13V6a3 3 0 0 0-5.14-2.1L8 2" />
@@ -24,3 +25,5 @@
   <path d="M6 13H2" />
   <path d="M3 21c0-2.1 1.7-3.9 3.8-4" />
 </svg>
+
+{{ end }}

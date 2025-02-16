@@ -1,3 +1,4 @@
+{{ define "message-square-dashed" }}
 <svg
   xmlns="http://www.w3.org/2000/svg"
   width="24"
@@ -9,9 +10,9 @@
   stroke-linecap="round"
   stroke-linejoin="round"
 
-	{{ range $value := . }}
-		{{ $value }}
-	{{ end }}
+  {{ range $value := . }}
+    {{ $value }}
+  {{ end }}
 >
 
   <path d="M10 17H7l-4 4v-7" />
@@ -24,3 +25,5 @@
   <path d="M5 3a2 2 0 0 0-2 2" />
   <path d="M9 3h1" />
 </svg>
+
+{{ end }}

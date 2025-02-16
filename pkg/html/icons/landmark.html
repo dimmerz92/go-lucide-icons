@@ -1,3 +1,4 @@
+{{ define "landmark" }}
 <svg
   xmlns="http://www.w3.org/2000/svg"
   width="24"
@@ -9,9 +10,9 @@
   stroke-linecap="round"
   stroke-linejoin="round"
 
-	{{ range $value := . }}
-		{{ $value }}
-	{{ end }}
+  {{ range $value := . }}
+    {{ $value }}
+  {{ end }}
 >
 
   <line x1="3" x2="21" y1="22" y2="22" />
@@ -21,3 +22,5 @@
   <line x1="18" x2="18" y1="18" y2="11" />
   <polygon points="12 2 20 7 4 7" />
 </svg>
+
+{{ end }}

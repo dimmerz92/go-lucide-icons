@@ -1,3 +1,4 @@
+{{ define "bus" }}
 <svg
   xmlns="http://www.w3.org/2000/svg"
   width="24"
@@ -9,9 +10,9 @@
   stroke-linecap="round"
   stroke-linejoin="round"
 
-	{{ range $value := . }}
-		{{ $value }}
-	{{ end }}
+  {{ range $value := . }}
+    {{ $value }}
+  {{ end }}
 >
 
   <path d="M8 6v6" />
@@ -22,3 +23,5 @@
   <path d="M9 18h5" />
   <circle cx="16" cy="18" r="2" />
 </svg>
+
+{{ end }}

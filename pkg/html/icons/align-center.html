@@ -1,3 +1,4 @@
+{{ define "align-center" }}
 <svg
   xmlns="http://www.w3.org/2000/svg"
   width="24"
@@ -9,12 +10,14 @@
   stroke-linecap="round"
   stroke-linejoin="round"
 
-	{{ range $value := . }}
-		{{ $value }}
-	{{ end }}
+  {{ range $value := . }}
+    {{ $value }}
+  {{ end }}
 >
 
   <path d="M17 12H7" />
   <path d="M19 18H5" />
   <path d="M21 6H3" />
 </svg>
+
+{{ end }}

@@ -1,3 +1,4 @@
+{{ define "loader" }}
 <svg
   xmlns="http://www.w3.org/2000/svg"
   width="24"
@@ -9,9 +10,9 @@
   stroke-linecap="round"
   stroke-linejoin="round"
 
-	{{ range $value := . }}
-		{{ $value }}
-	{{ end }}
+  {{ range $value := . }}
+    {{ $value }}
+  {{ end }}
 >
 
   <path d="M12 2v4" />
@@ -23,3 +24,5 @@
   <path d="M2 12h4" />
   <path d="m4.9 4.9 2.9 2.9" />
 </svg>
+
+{{ end }}

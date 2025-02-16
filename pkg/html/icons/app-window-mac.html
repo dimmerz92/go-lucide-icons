@@ -1,3 +1,4 @@
+{{ define "app-window-mac" }}
 <svg
   xmlns="http://www.w3.org/2000/svg"
   width="24"
@@ -9,9 +10,9 @@
   stroke-linecap="round"
   stroke-linejoin="round"
 
-	{{ range $value := . }}
-		{{ $value }}
-	{{ end }}
+  {{ range $value := . }}
+    {{ $value }}
+  {{ end }}
 >
 
   <rect width="20" height="16" x="2" y="4" rx="2" />
@@ -19,3 +20,5 @@
   <path d="M10 8h.01" />
   <path d="M14 8h.01" />
 </svg>
+
+{{ end }}

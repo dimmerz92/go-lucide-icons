@@ -1,3 +1,4 @@
+{{ define "tractor" }}
 <svg
   xmlns="http://www.w3.org/2000/svg"
   width="24"
@@ -9,9 +10,9 @@
   stroke-linecap="round"
   stroke-linejoin="round"
 
-	{{ range $value := . }}
-		{{ $value }}
-	{{ end }}
+  {{ range $value := . }}
+    {{ $value }}
+  {{ end }}
 >
 
   <path d="m10 11 11 .9a1 1 0 0 1 .8 1.1l-.665 4.158a1 1 0 0 1-.988.842H20" />
@@ -24,3 +25,5 @@
   <circle cx="18" cy="18" r="2" />
   <circle cx="7" cy="15" r="5" />
 </svg>
+
+{{ end }}

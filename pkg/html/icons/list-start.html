@@ -1,3 +1,4 @@
+{{ define "list-start" }}
 <svg
   xmlns="http://www.w3.org/2000/svg"
   width="24"
@@ -9,9 +10,9 @@
   stroke-linecap="round"
   stroke-linejoin="round"
 
-	{{ range $value := . }}
-		{{ $value }}
-	{{ end }}
+  {{ range $value := . }}
+    {{ $value }}
+  {{ end }}
 >
 
   <path d="M16 12H3" />
@@ -20,3 +21,5 @@
   <path d="M21 18V8a2 2 0 0 0-2-2h-5" />
   <path d="m16 8-2-2 2-2" />
 </svg>
+
+{{ end }}

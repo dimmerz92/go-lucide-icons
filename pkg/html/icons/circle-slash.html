@@ -1,3 +1,4 @@
+{{ define "circle-slash" }}
 <svg
   xmlns="http://www.w3.org/2000/svg"
   width="24"
@@ -9,11 +10,13 @@
   stroke-linecap="round"
   stroke-linejoin="round"
 
-	{{ range $value := . }}
-		{{ $value }}
-	{{ end }}
+  {{ range $value := . }}
+    {{ $value }}
+  {{ end }}
 >
 
   <circle cx="12" cy="12" r="10" />
   <line x1="9" x2="15" y1="15" y2="9" />
 </svg>
+
+{{ end }}

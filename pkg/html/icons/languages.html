@@ -1,3 +1,4 @@
+{{ define "languages" }}
 <svg
   xmlns="http://www.w3.org/2000/svg"
   width="24"
@@ -9,9 +10,9 @@
   stroke-linecap="round"
   stroke-linejoin="round"
 
-	{{ range $value := . }}
-		{{ $value }}
-	{{ end }}
+  {{ range $value := . }}
+    {{ $value }}
+  {{ end }}
 >
 
   <path d="m5 8 6 6" />
@@ -21,3 +22,5 @@
   <path d="m22 22-5-10-5 10" />
   <path d="M14 18h6" />
 </svg>
+
+{{ end }}

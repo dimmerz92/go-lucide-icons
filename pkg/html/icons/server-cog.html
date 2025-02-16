@@ -1,3 +1,4 @@
+{{ define "server-cog" }}
 <svg
   xmlns="http://www.w3.org/2000/svg"
   width="24"
@@ -9,9 +10,9 @@
   stroke-linecap="round"
   stroke-linejoin="round"
 
-	{{ range $value := . }}
-		{{ $value }}
-	{{ end }}
+  {{ range $value := . }}
+    {{ $value }}
+  {{ end }}
 >
 
   <circle cx="12" cy="12" r="3" />
@@ -28,3 +29,5 @@
   <path d="m14.7 10.8 1-.4" />
   <path d="m13.4 8.3-.3.9" />
 </svg>
+
+{{ end }}

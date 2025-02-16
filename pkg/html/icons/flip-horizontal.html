@@ -1,3 +1,4 @@
+{{ define "flip-horizontal" }}
 <svg
   xmlns="http://www.w3.org/2000/svg"
   width="24"
@@ -9,9 +10,9 @@
   stroke-linecap="round"
   stroke-linejoin="round"
 
-	{{ range $value := . }}
-		{{ $value }}
-	{{ end }}
+  {{ range $value := . }}
+    {{ $value }}
+  {{ end }}
 >
 
   <path d="M8 3H5a2 2 0 0 0-2 2v14c0 1.1.9 2 2 2h3" />
@@ -21,3 +22,5 @@
   <path d="M12 8v2" />
   <path d="M12 2v2" />
 </svg>
+
+{{ end }}

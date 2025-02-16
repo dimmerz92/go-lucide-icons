@@ -1,3 +1,4 @@
+{{ define "brain" }}
 <svg
   xmlns="http://www.w3.org/2000/svg"
   width="24"
@@ -9,9 +10,9 @@
   stroke-linecap="round"
   stroke-linejoin="round"
 
-	{{ range $value := . }}
-		{{ $value }}
-	{{ end }}
+  {{ range $value := . }}
+    {{ $value }}
+  {{ end }}
 >
 
   <path d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z" />
@@ -24,3 +25,5 @@
   <path d="M6 18a4 4 0 0 1-1.967-.516" />
   <path d="M19.967 17.484A4 4 0 0 1 18 18" />
 </svg>
+
+{{ end }}

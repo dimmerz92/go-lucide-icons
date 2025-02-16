@@ -1,3 +1,4 @@
+{{ define "candy-off" }}
 <svg
   xmlns="http://www.w3.org/2000/svg"
   width="24"
@@ -9,9 +10,9 @@
   stroke-linecap="round"
   stroke-linejoin="round"
 
-	{{ range $value := . }}
-		{{ $value }}
-	{{ end }}
+  {{ range $value := . }}
+    {{ $value }}
+  {{ end }}
 >
 
   <path d="m8.5 8.5-1 1a4.95 4.95 0 0 0 7 7l1-1" />
@@ -23,3 +24,5 @@
   <path d="m8 17-1 5-1.367-.683A3 3 0 0 0 4.292 21H3v-1.292a3 3 0 0 0-.317-1.341L2 17l5-1" />
   <line x1="2" x2="22" y1="2" y2="22" />
 </svg>
+
+{{ end }}

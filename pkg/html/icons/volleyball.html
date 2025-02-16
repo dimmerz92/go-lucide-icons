@@ -1,3 +1,4 @@
+{{ define "volleyball" }}
 <svg
   xmlns="http://www.w3.org/2000/svg"
   width="24"
@@ -9,9 +10,9 @@
   stroke-linecap="round"
   stroke-linejoin="round"
 
-	{{ range $value := . }}
-		{{ $value }}
-	{{ end }}
+  {{ range $value := . }}
+    {{ $value }}
+  {{ end }}
 >
 
   <path d="M11.1 7.1a16.55 16.55 0 0 1 10.9 4" />
@@ -21,3 +22,5 @@
   <path d="M6.3 3.8a16.55 16.55 0 0 0 1.9 11.5" />
   <circle cx="12" cy="12" r="10" />
 </svg>
+
+{{ end }}

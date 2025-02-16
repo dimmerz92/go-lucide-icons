@@ -1,3 +1,4 @@
+{{ define "list-collapse" }}
 <svg
   xmlns="http://www.w3.org/2000/svg"
   width="24"
@@ -9,9 +10,9 @@
   stroke-linecap="round"
   stroke-linejoin="round"
 
-	{{ range $value := . }}
-		{{ $value }}
-	{{ end }}
+  {{ range $value := . }}
+    {{ $value }}
+  {{ end }}
 >
 
   <path d="m3 10 2.5-2.5L3 5" />
@@ -20,3 +21,5 @@
   <path d="M10 12h11" />
   <path d="M10 18h11" />
 </svg>
+
+{{ end }}

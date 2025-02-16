@@ -1,3 +1,4 @@
+{{ define "arrows-up-from-line" }}
 <svg
   xmlns="http://www.w3.org/2000/svg"
   width="24"
@@ -9,9 +10,9 @@
   stroke-linecap="round"
   stroke-linejoin="round"
 
-	{{ range $value := . }}
-		{{ $value }}
-	{{ end }}
+  {{ range $value := . }}
+    {{ $value }}
+  {{ end }}
 >
 
   <path d="m4 6 3-3 3 3" />
@@ -20,3 +21,5 @@
   <path d="M17 17V3" />
   <path d="M4 21h16" />
 </svg>
+
+{{ end }}

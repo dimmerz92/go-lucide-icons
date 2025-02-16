@@ -1,3 +1,4 @@
+{{ define "microwave" }}
 <svg
   xmlns="http://www.w3.org/2000/svg"
   width="24"
@@ -9,9 +10,9 @@
   stroke-linecap="round"
   stroke-linejoin="round"
 
-	{{ range $value := . }}
-		{{ $value }}
-	{{ end }}
+  {{ range $value := . }}
+    {{ $value }}
+  {{ end }}
 >
 
   <rect width="20" height="15" x="2" y="4" rx="2" />
@@ -20,3 +21,5 @@
   <path d="M6 19v2" />
   <path d="M18 19v2" />
 </svg>
+
+{{ end }}

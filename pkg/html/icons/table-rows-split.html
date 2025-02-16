@@ -1,3 +1,4 @@
+{{ define "table-rows-split" }}
 <svg
   xmlns="http://www.w3.org/2000/svg"
   width="24"
@@ -9,9 +10,9 @@
   stroke-linecap="round"
   stroke-linejoin="round"
 
-	{{ range $value := . }}
-		{{ $value }}
-	{{ end }}
+  {{ range $value := . }}
+    {{ $value }}
+  {{ end }}
 >
 
   <path d="M14 10h2" />
@@ -26,3 +27,5 @@
   <path d="M9 22v-8" />
   <path d="M9 2v4" />
 </svg>
+
+{{ end }}
