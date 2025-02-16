@@ -48,7 +48,7 @@ const USAGE = `
 
 	COMMANDS:
 
-	add [-o ouput_file] <templ | html> <icon name (kebab-case)>
+	add [-o ouput_file] <html | templ> <icon name (kebab-case)>
 	*
 	* Adds a templ or html icon template to your project.
 	* The icon template will be generated in the directory the command was run
@@ -59,7 +59,7 @@ const USAGE = `
 	* Syncs new icons from the ./lucide/icons directory to the relevant html or
 	* templ directory in the ./pkg directory.
 
-	test [-p <port>]
+	test [-p <port>] <html | templ>
 	*
 	* Runs the test server to view and test the rendering of icons.
 

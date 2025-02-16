@@ -10,16 +10,6 @@ import templruntime "github.com/a-h/templ/runtime"
 
 import "github.com/dimmerz92/go-templ-lucide/pkg/templ/icons"
 
-/*
-import "html/template"
-
-var arrowUp = template.Must(template.ParseFiles("./pkg/html/icons/a-arrow-up.html"))
-var arrowDown = template.Must(template.ParseFiles("./pkg/html/icons/a-arrow-up.html"))
-var fish = template.Must(template.ParseFiles("./pkg/html/icons/fish.html"))
-var fingerprint = template.Must(template.ParseFiles("./pkg/html/icons/fingerprint.html"))
-var worm = template.Must(template.ParseFiles("./pkg/html/icons/worm.html"))
-*/
-
 func index() templ.Component {
 	return templruntime.GeneratedTemplate(func(templ_7745c5c3_Input templruntime.GeneratedComponentInput) (templ_7745c5c3_Err error) {
 		templ_7745c5c3_W, ctx := templ_7745c5c3_Input.Writer, templ_7745c5c3_Input.Context
@@ -41,7 +31,7 @@ func index() templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<!doctype html><html><head><title>test index page</title></head><body><h2>templ icons</h2>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<!doctype html><html><head><title>templ test index page</title></head><body><h2>templ icons</h2>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -81,7 +71,7 @@ func index() templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "<br><br><h2>html icons</h2></body></html>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "</body></html>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
