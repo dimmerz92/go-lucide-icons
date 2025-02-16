@@ -51,7 +51,10 @@ In both cases, the `-o` flag in step 2 is optional. By default, icons will be ge
 #### For Templ icons
 
 Add the package to your project.
-* For Templ icons `go get github.com/dimmerz92/go-lucide-icons/pkg/templ/icons`
+* For Templ icons
+```bash
+go get github.com/dimmerz92/go-lucide-icons/pkg/templ/icons
+```
 
 All components have the same name as the lucide icons, except in pascal case.
 
