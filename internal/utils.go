@@ -10,34 +10,55 @@ import (
 // getNewFiles returns a string slice of file names with relative path including
 // `.svg` extension of new files in the src directory that are not in the target
 // directory.
-func getNewFiles(src, target string) ([]string, error) {
-	targetFiles := make(map[string]struct{})
-	newFiles := make([]string, 0)
-
+func getNewFiles(src, htmlTarget, templTarget string) (map[string][]string, error) {
 	// generate a set from the target files
-	targetDir, err := os.ReadDir(target)
+	htmlTargetDir, err := os.ReadDir(htmlTarget)
 	if err != nil {
-		return nil, fmt.Errorf("failed to read directory: %s: %v", target, err)
+		return nil, fmt.Errorf("failed to read dir: %s: %v", htmlTarget, err)
 	}
 
-	for _, file := range targetDir {
-		name := strings.TrimSuffix(file.Name(), filepath.Ext(file.Name()))
-		targetFiles[name] = struct{}{}
+	templTargetDir, err := os.ReadDir(templTarget)
+	if err != nil {
+		return nil, fmt.Errorf("failed to read dir: %s: %v", templTarget, err)
 	}
 
-	// get the difference between the two directories
+	targetFiles := make(map[string]struct{})
+	targetDirs := append(htmlTargetDir, templTargetDir...)
+	for _, file := range targetDirs {
+		if ext := filepath.Ext(file.Name()); ext == ".html" || ext == ".templ" {
+			targetFiles[file.Name()] = struct{}{}
+		}
+	}
+
+	// get the difference between src and combined target directories
 	srcDir, err := os.ReadDir(src)
 	if err != nil {
-		return nil, fmt.Errorf("failed to read directory: %s: %v", target, err)
+		return nil, fmt.Errorf("failed to read dir: %s: %v", src, err)
 	}
 
+	newFiles := make(map[string][]string)
 	for _, file := range srcDir {
+		// skip src file if not an svg
 		if !strings.HasSuffix(file.Name(), ".svg") {
 			continue
 		}
 
-		if _, ok := targetFiles[strings.TrimSuffix(file.Name(), ".svg")]; !ok {
-			newFiles = append(newFiles, filepath.Join(src, file.Name()))
+		name := strings.TrimSuffix(file.Name(), ".svg")
+
+		// if file is not in html files, add it
+		if _, htmlFile := targetFiles[name+".html"]; !htmlFile {
+			newFiles["html"] = append(
+				newFiles["html"],
+				filepath.Join(src, name+".svg"),
+			)
+		}
+
+		// if file is not in templ files, add it
+		if _, templFile := targetFiles[name+".templ"]; !templFile {
+			newFiles["templ"] = append(
+				newFiles["templ"],
+				filepath.Join(src, name+".svg"),
+			)
 		}
 	}
 
