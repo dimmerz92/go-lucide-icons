@@ -1,11 +1,13 @@
 package internal
 
 import (
+	"flag"
 	"log"
 	"os"
 	"path/filepath"
 
-	"github.com/dimmerz92/go-templ-lucide/icons"
+	glhtml "github.com/dimmerz92/go-templ-lucide/pkg/html"
+	gltempl "github.com/dimmerz92/go-templ-lucide/pkg/templ"
 )
 
 func ReturnIcon(args []string) int {
@@ -18,25 +20,31 @@ func ReturnIcon(args []string) int {
 		log.Fatalf("failed to get current working directory: %v", err)
 	}
 
-	switch args[0] {
+	cmd := flag.NewFlagSet("add", flag.ExitOnError)
+	output := cmd.String("o", cwd, "use a port between 1024 and 65535")
+	cmd.Parse(args)
+
+	icon := len(args) - 1
+
+	switch args[len(args)-2] {
 	case "html":
-		file, err := icons.GetHtmlFile(args[1] + ".html")
+		file, err := glhtml.GetHtmlFile(args[icon] + ".html")
 		if err != nil {
 			log.Fatalf("file not found: %v", err)
 		}
 
-		err = os.WriteFile(filepath.Join(cwd, args[1]+".html"), file, 0644)
+		err = os.WriteFile(filepath.Join(*output, args[icon]+".html"), file, 0644)
 		if err != nil {
 			log.Fatalf("failed to write file to output: %v", err)
 		}
 
 	case "templ":
-		file, err := icons.GetTemplFile(args[1] + ".templ")
+		file, err := gltempl.GetTemplFile(args[icon] + ".templ")
 		if err != nil {
 			log.Fatalf("file not found: %v", err)
 		}
 
-		err = os.WriteFile(filepath.Join(cwd, args[1]+".templ"), file, 0644)
+		err = os.WriteFile(filepath.Join(*output, args[icon]+".templ"), file, 0644)
 		if err != nil {
 			log.Fatalf("failed to write file to output: %v", err)
 		}
