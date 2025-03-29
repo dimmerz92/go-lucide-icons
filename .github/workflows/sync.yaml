@@ -16,7 +16,7 @@ jobs:
         id: new-commits
         run: >-
           echo "new=$(
-            curl -s "https://api.github.com/repos/lucide-icons/lucide/commits?path=icons&since=$(date -I):00:00:00Z"
+            curl -s "https://api.github.com/repos/lucide-icons/lucide/commits?path=icons&since=$(date -d "yesterday" -I):00:00:00Z"
             | jq "length" 
           )" >> "$GITHUB_OUTPUT"
 
