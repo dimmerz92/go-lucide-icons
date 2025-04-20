@@ -39,7 +39,8 @@ jobs:
           go install github.com/a-h/templ/cmd/templ@latest
           go run ./cmd/golucide/main.go sync
           rm -r ./lucide
-          git commit -am "ci: sync with lucide icons repo"
+          git add .
+          git commit -m "ci: sync with lucide icons repo"
 
       - name: Submit a PR
         uses: peter-evans/create-pull-request@v7
