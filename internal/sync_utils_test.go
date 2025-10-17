@@ -101,3 +101,69 @@ func TestKebabToPascal(t *testing.T) {
 		}
 	}
 }
+
+func TestToHTML(t *testing.T) {
+	test := `<svg>
+  <g></g>
+</svg>
+`
+	want := `{{ define "my-icon" }}
+<svg
+  {{ range $value := . }}
+    {{ $value }}
+  {{ end }}
+>
+  <g></g>
+</svg>
+{{ end }}`
+
+	tmp := t.TempDir()
+
+	err := internal.ToHTML("my-icon", test, tmp)
+	if err != nil {
+		t.Fatalf("failed to write html icon: %v", err)
+	}
+
+	got, err := os.ReadFile(filepath.Join(tmp, "my-icon.html"))
+	if err != nil {
+		t.Fatalf("failed to read html icon: %v", err)
+	}
+
+	if string(got) != want {
+		t.Fatalf("wanted\n%s\n\ngot\n%s", want, string(got))
+	}
+}
+
+func TestToTempl(t *testing.T) {
+	test := `<svg>
+  <g></g>
+</svg>
+`
+	want := `package icons
+
+templ MyIcon(attrs ...templ.Attributes) {
+	<svg
+		if len(attrs) > 0 {
+			{ attrs[0]... }
+		}
+	>
+		<g></g>
+</svg>
+}`
+
+	tmp := t.TempDir()
+
+	err := internal.ToTempl("my-icon", test, tmp)
+	if err != nil {
+		t.Fatalf("failed to write templ icon: %v", err)
+	}
+
+	got, err := os.ReadFile(filepath.Join(tmp, "my-icon.templ"))
+	if err != nil {
+		t.Fatalf("failed to read templ icon: %v", err)
+	}
+
+	if string(got) != want {
+		t.Fatalf("wanted\n%s\n\ngot\n%s", want, string(got))
+	}
+}
