@@ -34,17 +34,23 @@ jobs:
           git checkout
 
       - name: Process new icons
+        id: sync
         run: |
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git config user.name "github-actions[bot]"
           go install github.com/a-h/templ@latest
           go run ./cmd/sync/main.go
           rm -r ./lucide
-          # check if any changes for staging?
           git add .
-          git commit -m "ci: sync with lucide icons repo"
+          if ! git diff --cached --quiet; then
+            git commit -m "ci: sync with lucide icons repo"
+            echo "changes=true" >> $GITHUB_OUTPUT
+          else
+            echo "changes=false" >> $GITHUB_OUTPUT
+          fi
 
       - name: Submit a PR
+        if: steps.sync.outputs.changes == "true"
         uses: peter-evans/create-pull-request@v7
         with:
           title: "[ci] sync with lucide icons repo"
