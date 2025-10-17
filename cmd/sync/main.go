@@ -54,5 +54,10 @@ func main() {
 		panic(err)
 	}
 
+	_, err = exec.Command("templ", "generate").Output()
+	if err != nil {
+		panic(err)
+	}
+
 	fmt.Printf("Finished: %d html files & %d templ files", len(htmlWant), len(templWant))
 }
