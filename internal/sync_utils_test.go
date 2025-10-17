@@ -58,3 +58,27 @@ func TestFileSet(t *testing.T) {
 		_ = internal.FileSet("/invalid/path/to/icons", ".svg")
 	})
 }
+
+func TestFileSetDiff(t *testing.T) {
+	setA := map[string]struct{}{
+		"item1": {},
+		"item2": {},
+		"item3": {},
+		"item4": {},
+	}
+
+	setB := map[string]struct{}{
+		"item1": {},
+		"item4": {},
+	}
+
+	want := map[string]struct{}{
+		"item2": {},
+		"item3": {},
+	}
+
+	got := internal.DiffFileSet(setA, setB)
+	if !reflect.DeepEqual(got, want) {
+		t.Fatalf("got %#v; want %#v", got, want)
+	}
+}

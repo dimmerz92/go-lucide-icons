@@ -28,3 +28,15 @@ func FileSet(path, ext string) map[string]struct{} {
 
 	return icons
 }
+
+// DiffSet returns the difference set of `setA` minus `setB`.
+func DiffFileSet(setA, setB map[string]struct{}) map[string]struct{} {
+	diff := make(map[string]struct{})
+	for file := range setA {
+		if _, ok := setB[file]; !ok {
+			diff[file] = struct{}{}
+		}
+	}
+
+	return diff
+}
