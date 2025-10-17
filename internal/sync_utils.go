@@ -4,6 +4,9 @@ import (
 	"os"
 	"path/filepath"
 	"strings"
+
+	"golang.org/x/text/cases"
+	"golang.org/x/text/language"
 )
 
 // FileSet returns a set of names of files of type 'ext' from the specified 'path' with 'ext' trimmed.
@@ -39,4 +42,19 @@ func DiffFileSet(setA, setB map[string]struct{}) map[string]struct{} {
 	}
 
 	return diff
+}
+
+// KebabToPascal converts a kebab case string to a pascal case string.
+func KebabToPascal(v string) (string, error) {
+	var b strings.Builder
+	caser := cases.Title(language.English)
+
+	for part := range strings.SplitSeq(v, "-") {
+		_, err := b.WriteString(caser.String(part))
+		if err != nil {
+			return "", err
+		}
+	}
+
+	return b.String(), nil
 }

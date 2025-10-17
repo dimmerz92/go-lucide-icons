@@ -82,3 +82,22 @@ func TestFileSetDiff(t *testing.T) {
 		t.Fatalf("got %#v; want %#v", got, want)
 	}
 }
+
+func TestKebabToPascal(t *testing.T) {
+	tests := map[string]string{
+		"i-am-a-test-string": "IAmATestString",
+		"imnotakebab":        "Imnotakebab",
+		"":                   "",
+	}
+
+	for kebab, pascal := range tests {
+		got, err := internal.KebabToPascal(kebab)
+		if err != nil {
+			t.Fatal(err)
+		}
+
+		if got != pascal {
+			t.Fatalf("got %s, wanted %s", got, pascal)
+		}
+	}
+}
