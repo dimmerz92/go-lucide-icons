@@ -5,7 +5,7 @@ import (
 	"strings"
 	"testing"
 
-	htmlicons "github.com/dimmerz92/go-lucide-icons/html-icons"
+	"github.com/dimmerz92/go-lucide-icons/htmlicons"
 )
 
 func TestGetHtmlFile(t *testing.T) {

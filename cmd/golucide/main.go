@@ -5,8 +5,8 @@ import (
 	"os"
 	"path/filepath"
 
-	htmlicons "github.com/dimmerz92/go-lucide-icons/html-icons"
-	templicons "github.com/dimmerz92/go-lucide-icons/templ-icons"
+	"github.com/dimmerz92/go-lucide-icons/htmlicons"
+	"github.com/dimmerz92/go-lucide-icons/templicons"
 	"github.com/fatih/color"
 )
 

@@ -3,7 +3,7 @@ package templicons_test
 import (
 	"testing"
 
-	templicons "github.com/dimmerz92/go-lucide-icons/templ-icons"
+	"github.com/dimmerz92/go-lucide-icons/templicons"
 )
 
 func TestGetTemplFile(t *testing.T) {
