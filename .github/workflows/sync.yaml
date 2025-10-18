@@ -13,7 +13,7 @@ jobs:
     steps:
       - name: Check for commits to the icons directory in the lucide icons repo
         id: new-commits
-        run: echo "new=$(curl -s "https://api.github.com/repos/lucide-icons/lucide/commits?path=icons&since=$(date -d "yesterday" -I):00:00:00Z" | jq "length")"
+        run: echo "new=$(curl -s "https://api.github.com/repos/lucide-icons/lucide/commits?path=icons&since=$(date -d "yesterday" -I):00:00:00Z" | jq "length")" >> $GITHUB_OUTPUT
 
   sync-lucide-icons-repo:
     runs-on: ubuntu-latest
