@@ -1,25 +1,24 @@
 name: sync
 
 on:
-  schedule:
-    - cron: '0 0 * * *'
-
   workflow_dispatch:
+  schedule:
+    - cron: "0 0 * * *"
 
 jobs:
-  check-lucide-repo:
+  check-lucide-icons-repo:
     runs-on: ubuntu-latest
     outputs:
       new: ${{ steps.new-commits.outputs.new }}
     steps:
-      - name: Check for commits to the icons folder in the last day
+      - name: Check for commits to the icons directory in the lucide icons repo
         id: new-commits
-        run: echo "new=$(curl -s "https://api.github.com/repos/lucide-icons/lucide/commits?path=icons&since=$(date -d "yesterday" -I):00:00:00Z" | jq "length")" >> "$GITHUB_OUTPUT"
+        run: echo "new=$(curl -s "https://api.github.com/repos/lucide-icons/lucide/commits?path=icons&since=$(date -d "yesterday" -I):00:00:00Z" | jq "length")"
 
-  sync-lucid-repo:
+  sync-lucide-icons-repo:
     runs-on: ubuntu-latest
-    needs: check-lucide-repo
-    if: ${{ fromJSON(needs.check-lucide-repo.outputs.new) > 0 }}
+    needs: check-lucide-icons-repo
+    if: ${{ fromJSON(needs.check-lucide-icons-repo.outputs.new) > 0 }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-go@v5
@@ -27,25 +26,34 @@ jobs:
           go-version-file: ./go.mod
 
       - name: Clone lucide icons repo
-        uses: actions/checkout@v4
-        with:
-          repository: lucide-icons/lucide
-          path: lucide
+        run: |
+          git clone --filter=blob:none --no-checkout https://github.com/lucide-icons/lucide.git
+          cd lucide
+          git sparse-checkout init --cone
+          git sparse-checkout set icons
+          git checkout
 
       - name: Process new icons
+        id: sync
         run: |
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git config user.name "github-actions[bot]"
-          go install github.com/a-h/templ/cmd/templ@latest
-          go run ./cmd/golucide/main.go sync
+          go install github.com/a-h/templ@latest
+          go run ./cmd/sync/main.go
           rm -r ./lucide
           git add .
-          git commit -m "ci: sync with lucide icons repo"
+          if ! git diff --cached --quiet; then
+            git commit -m "ci: sync with lucide icons repo"
+            echo "changes=true" >> $GITHUB_OUTPUT
+          else
+            echo "changes=false" >> $GITHUB_OUTPUT
+          fi
 
       - name: Submit a PR
+        if: steps.sync.outputs.changes == "true"
         uses: peter-evans/create-pull-request@v7
         with:
-          title: '[ci] sync with lucide icons repo'
+          title: "[ci] sync with lucide icons repo"
           labels: ci,sync
           branch: sync
           assignees: dimmerz92

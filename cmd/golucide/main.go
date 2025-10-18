@@ -1,71 +1,94 @@
 package main
 
 import (
-	"fmt"
+	"flag"
 	"os"
+	"path/filepath"
 
-	"github.com/dimmerz92/go-lucide-icons/internal"
+	"github.com/dimmerz92/go-lucide-icons/htmlicons"
+	"github.com/dimmerz92/go-lucide-icons/templicons"
+	"github.com/fatih/color"
 )
 
-const INPUT = "./lucide/icons"
-const HTML_OUTPUT = "./pkg/html/icons"
-const TEMPL_OUTPUT = "./pkg/templ/icons"
+const PERMS = 0600
 
 func main() {
 	args := os.Args
 	if len(args) < 2 {
-		printUsage()
+		println(help)
+		os.Exit(1)
 	}
 
 	switch args[1] {
-	case "add":
-		if len(args) < 4 {
-			printUsage()
+	case "html":
+		if len(args) < 3 {
+			color.Red("error: icon name required\n")
+			println(help)
+			os.Exit(1)
 		}
 
-		if internal.ReturnIcon(args[2:]) < 0 {
-			printUsage()
+		f := flag.NewFlagSet("templ", flag.ContinueOnError)
+		output := f.String("out", ".", "the output directory")
+		f.Parse(args[3:])
+
+		file, err := htmlicons.GetHtmlFile(args[2])
+		if err != nil {
+			color.Red(err.Error())
+			os.Exit(1)
 		}
 
-	case "sync":
-		internal.SyncFiles(INPUT, HTML_OUTPUT, TEMPL_OUTPUT)
+		err = os.WriteFile(filepath.Join(*output, args[2]+".html"), file, PERMS)
+		if err != nil {
+			color.Red(err.Error())
+			os.Exit(1)
+		}
 
-	case "test":
-		internal.TestServer(args[2:])
+		color.Green("%s.html save to %s", args[2], *output)
 
-	case "help", "-h", "--help":
-		fmt.Print(USAGE)
+	case "templ":
+		if len(args) < 3 {
+			color.Red("error: icon name required\n")
+			println(help)
+			os.Exit(1)
+		}
+
+		f := flag.NewFlagSet("templ", flag.ContinueOnError)
+		output := f.String("out", ".", "the output directory")
+		f.Parse(args[3:])
+
+		file, err := templicons.GetTemplFile(args[2])
+		if err != nil {
+			color.Red(err.Error())
+			os.Exit(1)
+		}
+
+		err = os.WriteFile(filepath.Join(*output, args[2]+".templ"), file, PERMS)
+		if err != nil {
+			color.Red(err.Error())
+			os.Exit(1)
+		}
+
+		color.Green("%s.templ save to %s", args[2], *output)
+
+	case "help":
+		fallthrough
 
 	default:
-		printUsage()
+		if args[1] != "help" {
+			color.Red("%s: not a valid command\n", args[1])
+		}
+		println(help)
 	}
 }
 
-const USAGE = `
-	go-lucide - a port of lucide icons for Go developers
-
-	USAGE: golucide <command> [<args>...]
-
-	COMMANDS:
-
-	add [-o ouput_file] <html | templ> <icon name (kebab-case)>
-	*
-	* Adds a templ or html icon template to your project.
-	* The icon template will be generated in the directory the command was run
-	* from if an output file is not specified.
-
-	sync
-	*
-	* Syncs new icons from the ./lucide/icons directory to the relevant html or
-	* templ directory in the ./pkg directory.
-
-	test [-p <port>] <html | templ>
-	*
-	* Runs the test server to view and test the rendering of icons.
-
-`
-
-func printUsage() {
-	fmt.Print(USAGE)
-	os.Exit(1)
-}
+var help = color.YellowString("USAGE:\n") +
+	color.WhiteString("\tgolucide ") + color.BlueString("<COMMAND> ") + color.MagentaString("[OPTIONS]\n\n") +
+	color.YellowString("COMMANDS:\n") +
+	color.BlueString("\thtml ") + color.CyanString("<icon name> ") + color.MagentaString("[options]\n") +
+	color.WhiteString("\tGenerates a html lucide icon template.\n") +
+	color.MagentaString("\t-out") + color.WhiteString(" directory to save the generated icon. Defaults to .\n\n") +
+	color.BlueString("\ttempl ") + color.CyanString("<icon name> ") + color.MagentaString("[options]\n") +
+	color.WhiteString("\tGenerates a templ lucide icon template.\n") +
+	color.MagentaString("\t-out") + color.WhiteString(" directory to save the generated icon. Defaults to .\n\n") +
+	color.BlueString("\thelp\n") +
+	color.WhiteString("\tPrints help text for golucide.\n")
