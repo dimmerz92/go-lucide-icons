@@ -43,7 +43,7 @@ In both cases, the `-out` flag in step 2 is optional. By default, icons will be 
 
 Add the package to your project.
 ```sh
-go get github.com/dimmerz92/go-lucide-icons/html-icons
+go get github.com/dimmerz92/go-lucide-icons/htmlicons
 ```
 
 All componenents have the same name as the lucide icons and remain in kebab case.
@@ -93,7 +93,7 @@ All components have the same name as the lucide icons, except in pascal case.
 
 E.g. a-arrow-down becomes AArrowDown.
 
-To pass attributes to the icon, simply use the [`templ.Attributes` type](https://templ.guide/syntax-and-usage/attributes/#spread-attributes).
+To pass attributes to the icon, simply use the [`templ.Attributes`](https://templ.guide/syntax-and-usage/attributes/#spread-attributes) type.
 
 ## License
 
