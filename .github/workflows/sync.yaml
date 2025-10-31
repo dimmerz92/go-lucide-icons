@@ -38,7 +38,7 @@ jobs:
         run: |
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git config user.name "github-actions[bot]"
-          go install github.com/a-h/templ@latest
+          go install github.com/a-h/templ/cmd/templ@latest
           go run ./cmd/sync/main.go
           rm -r ./lucide
           git add .
