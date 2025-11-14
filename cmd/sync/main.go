@@ -11,8 +11,8 @@ import (
 
 const (
 	LUCIDE_ICONS_DIR = "./lucide/icons"
-	HTML_ICONS_DIR   = "./html-icons/templates"
-	TEMPL_ICONS_DIR  = "./templ-icons/icons"
+	HTML_ICONS_DIR   = "./htmlicons/templates"
+	TEMPL_ICONS_DIR  = "./templicons/icons"
 )
 
 func main() {
