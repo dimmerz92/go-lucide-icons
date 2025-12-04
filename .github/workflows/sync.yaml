@@ -42,7 +42,7 @@ jobs:
           go run ./cmd/sync/main.go
           rm -r ./lucide
           git add .
-          if ! git diff --cached --quiet; then
+          if git status --porcelain | grep -q .; then
             git commit -m "ci: sync with lucide icons repo"
             echo "changes=true" >> $GITHUB_OUTPUT
           else
