@@ -86,7 +86,7 @@ To use the icons within your own templates, simply add them as named templates.
 
 Add the package to your project.
 ```sh
-go get github.com/dimmerz92/go-lucide-icons/templicons
+go get github.com/dimmerz92/go-lucide-icons/templicons/icons
 ```
 
 All components have the same name as the lucide icons, except in pascal case.
@@ -94,6 +94,14 @@ All components have the same name as the lucide icons, except in pascal case.
 E.g. a-arrow-down becomes AArrowDown.
 
 To pass attributes to the icon, simply use the [`templ.Attributes`](https://templ.guide/syntax-and-usage/attributes/#spread-attributes) type.
+
+```templ
+// expecting data
+@icons.AArrowDown(templ.Attributes{"class": "foo"})
+
+// not expecting data
+@icons.AArrowDown()
+```
 
 ## License
 
