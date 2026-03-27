@@ -1,3 +1,8 @@
+> [!WARNING]
+> This repo has been retired in favour of the newer [go-icons](https://github.com/dimmerz92/go-icons) repo.
+>
+> go-icons contains all the same icons from Lucide plus thousands more from libraries such as Radix Icons, Material Icons, Simple Icons, and Ionicons.
+
 # Go Lucide Icons
 
 A wrapper of Lucide Icons for Go (Golang) developers.
